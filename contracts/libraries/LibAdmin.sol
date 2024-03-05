@@ -24,6 +24,9 @@ library LibAdmin {
         mapping(uint8 => uint256) statusToLiqPenalty;  //green icin farkli 
         mapping(uint8 => uint256) statusToLoanToValue;
         mapping(uint256 => uint256) liqutaionTresholds; // Collateral id liqudation treshold
+        //new liq feeadded
+        uint256 liqfee; //this will be 0.025 eth
+
     }
 
     event ChangedItemStatusTo(uint256 colleretalId, uint8 newStauts);
@@ -44,6 +47,16 @@ library LibAdmin {
     function _getPaymentStatusForToken(address _token)internal view returns(uint8){
         DiamondStorage storage ds = diamondStorage();
         return ds.addressToPaymentStatus[_token];
+    }
+
+    function _setLiqFee(uint256 _fee) internal {
+        DiamondStorage storage ds = diamondStorage();
+        ds.liqfee = _fee;
+    }
+
+    function _getLiqFee()internal view returns(uint256){
+        DiamondStorage storage ds = diamondStorage();
+        return ds.liqfee;
     }
 
     function _setStatusToLiqPenalty(uint8 _status,uint256 _penalty) internal {

@@ -81,8 +81,29 @@ library LibPayment {
             uint256 floorPriceUSD = (floorPrice*LibAdmin._getETHPrice()/(10**(18-tokenDecimal))/uint256(1000000)); //100
             require(LibCollateral._getExpectedPrice(lendersLoan.collateralId) <=((floorPriceUSD*ltv)/100),"P5");//Price cant be max loan amount
         }
-        
     }
+
+
+    
+    function _addLiqFee(
+        uint256 _collateralId,
+        uint256 _amount
+    ) internal view returns(uint256){
+        //eger token weth ise direkt ekle gitsin
+        if(LibAdmin._getPaymentStatusForToken(LibCollateral._getPaymentToken(_collateralId)) == 2){
+            //uint256 floorPrice = LibFloorPrice._getFloorPrice(LibCollateral._getCollateralAddress(lendersLoan.collateralId));
+            return _amount + LibAdmin._getLiqFee();
+        }
+        else if(LibAdmin._getPaymentStatusForToken(LibCollateral._getPaymentToken(_collateralId)) == 1){
+            //uint256 floorPrice = LibFloorPrice._getFloorPrice(LibCollateral._getCollateralAddress(lendersLoan.collateralId));
+            IERC20 token = IERC20(LibCollateral._getPaymentToken(_collateralId));
+            uint256 tokenDecimal =  token.decimals();
+            //su an stable currency calisiyoruz once bunu bi currency'e donusturmemiz lazim
+            uint256 liqFeeUsdt = (LibAdmin._getLiqFee()*LibAdmin._getETHPrice()/(10**(18-tokenDecimal))/uint256(1000000)); //100
+            return _amount + liqFeeUsdt;
+        }
+    }
+
 
     function convertToEthUSDT(uint256 amountInUSD) internal view returns(uint256) {
         //IERC20 token = IERC20(tokenAddress);
@@ -261,7 +282,7 @@ library LibPayment {
         uint256 platformFee = LibAdmin._calculateLoanFee(LibCollateral._getCollateralAddress(_collateralId),payedAmount);
         
         uint256 allowance = IERC20(LibCollateral._getPaymentToken(_collateralId)).allowance(_sender, s.diamondAddress);
-        require(allowance >= payedAmount, "P009");//Check the token allowance for loan"
+        require(allowance >= payedAmount+_addLiqFee(_collateralId, payedAmount), "P009");//Check the token allowance for loan"
 
         return (payedAmount,platformFee);
     }
@@ -278,7 +299,7 @@ library LibPayment {
         uint256 platformFee = LibPladFacet._calculateTierLoanFee(_borrower, payedAmount, _status);
         
         uint256 allowance = IERC20(LibCollateral._getPaymentToken(_collateralId)).allowance(_lender, s.diamondAddress);
-        require(allowance >= payedAmount, "P009");//Check the token allowance for loan"
+        require(allowance >= payedAmount+_addLiqFee(_collateralId, payedAmount), "P009");//Check the token allowance for loan"
 
         return (payedAmount,platformFee);
     }
