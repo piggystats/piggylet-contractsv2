@@ -1,4 +1,5 @@
 # ALFA PROD ORTAMI BU OLACAK
+<pre>
 npx hardhat compile
 npx hardhat run scripts/deploy.js --network sepolia 
 npx hardhat run scripts/updateadmin.js --network sepolia 
@@ -192,3 +193,5 @@ Diamond Cut: [
 ]
 Diamond cut tx:  0x1f31aef362b8b203399416092bed66e1fa0556171342cc4b1e1b04591f75ba0d
 Completed diamond cut
+
+</pre>
