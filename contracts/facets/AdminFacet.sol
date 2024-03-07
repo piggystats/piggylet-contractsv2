@@ -21,6 +21,17 @@ contract AdminFacet{
         LibAdmin._setCollateralStatus(_collateralAddress,_status);
     }
 
+
+    function setTransferToLenderFee(uint256 _fee) external   {
+        LibDiamond.enforceIsContractOwner();
+        LibAdmin._setLiqFee(_fee);
+    }
+
+    function getTransferToLenderFee() external view returns(uint256) {
+        return LibAdmin._getLiqFee();
+    }
+
+
     function bundeCollateralStatus(address[] memory _collateralAddress,uint8[] memory _status) external  {
         LibDiamond.enforceIsContractOwner();
         require(_collateralAddress.length == _status.length &&_collateralAddress.length  <=20,"A0002");

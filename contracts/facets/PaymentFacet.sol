@@ -16,23 +16,23 @@ contract PaymentFacet{
     function giveLoanBundle(
         Loan[] memory lendersLoan
     )external{
-        require(lendersLoan.length <= 10,"Only 10 colleteral at once");
+        require(lendersLoan.length <= 10,"10");
         for (uint256 i = 0; i < lendersLoan.length; i++) {
             LibPayment._giveLoan(lendersLoan[i],block.timestamp);
         }
     }
 
     function payBack(
-        uint256 _colleteralId
+        uint256 _collateralId
     ) external  {
-        LibPayment._payback(_colleteralId, block.timestamp, msg.sender);
+        LibPayment._payback(_collateralId, block.timestamp, msg.sender);
     }
 
 
     function transferToLender(
-        uint256 _colleteralId
+        uint256 _collateralId
     ) external  {
-        LibPayment._transferToLender(_colleteralId, block.timestamp, msg.sender);
+        LibPayment._transferToLender(_collateralId, block.timestamp, msg.sender);
     }
 
     // function decodeLoan(bytes memory data) external pure returns (Loan memory lendersLoan) {
@@ -40,10 +40,10 @@ contract PaymentFacet{
     // }
 
     function recovery(
-        uint256 _colleteralId
+        uint256 _collateralId
     )external  {
         LibDiamond.enforceIsContractOwner();
-        LibPayment._recoveryColleteralForTest(_colleteralId, msg.sender);
+        LibPayment._recoveryColleteralForTest(_collateralId, msg.sender);
     }
 
 }
