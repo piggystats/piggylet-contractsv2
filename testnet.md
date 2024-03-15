@@ -1,31 +1,24 @@
-# ALFA PROD ORTAMI BU OLACAK
+# Testnet ortami kontratlari
 <pre>
-npx hardhat compile
-npx hardhat run scripts/deploy.js --network sepolia 
-npx hardhat run scripts/updateadmin.js --network sepolia 
-
-Compilation finished successfully
-
-
-DiamondCutFacet deployed: 0xcCC0a53B8625D45D9720C2F158cB2492A52572B3
-Diamond deployed: 0x1dCE33Ba8a5188234ef6f797Fc8FF118B62DFD16
-DiamondInit deployed: 0x5Bf8EBEED15AD440076aed575B9Dd04eaf34c4Cf
+DiamondCutFacet deployed: 0x54321e550c9abF8E9D03ed37604Af4Dd1720b9f0
+Diamond deployed: 0x286701C7ade4f20b2D244c86Ba6865f731047304
+DiamondInit deployed: 0x3e3F868Bfd96611d5d235F2C0528d13Cc0fD2374
 
 Deploying facets
-DiamondLoupeFacet deployed: 0x6e50e9923a2c1ACCCA2124C9C68c5B669F62E6CB
-OwnershipFacet deployed: 0xd3eF233498bF9e6752a2cBc9654371FD43927B2a
-CollateralFacet deployed: 0x9A12abf9ac5683aC0992a5b76E6D0aa7A782637E
-PaymentFacet deployed: 0x4eDEd7f2867C11979F57c544EC292d0B230FBc6e
-AdminFacet deployed: 0x9726417b77878825239709950247aD35f821e7e9
-BidFacet deployed: 0x269c042bFEa685Bac5591F056E48AC7Bff088F1A
-BidUpdateFacet deployed: 0xD3478906d787271D2B99F2c237B39a713d628212
-FloorPriceFacet deployed: 0x36caA9b3B5e9c60F65be8068547b27ED8FF40600
-LiquidationFacet deployed: 0x436E94CE5beb9F64390F45FAF7da82793De6190f
-PladFacet deployed: 0x1bb9a4f40687F690583a7F1A9F999Ba2D48f6f99
+DiamondLoupeFacet deployed: 0x9F09Ed07FDCbb2e9BB5FF09f86B228A12C0c32C1
+OwnershipFacet deployed: 0x6f51b9316B000bbB4Fce7F71DcB802E25F507110
+CollateralFacet deployed: 0x1C3f58f879677Bcf619BbcF1afD0000Bdf661509
+PaymentFacet deployed: 0xf00f7E9bb48A96EDbf71eeAEdc01776397eeE70f
+AdminFacet deployed: 0xf3e3AEf068486cd3a8e46E91382845aCa2967DC9
+BidFacet deployed: 0x37E37793b684826aDf5018284caf69Aa83590A58
+BidUpdateFacet deployed: 0x13b8fedc4407c6788Af043cCD650178a1eEcB94D
+FloorPriceFacet deployed: 0xb4373301697aD832664F679D2EB8bC91d2FdF170
+LiquidationFacet deployed: 0x866DD66F24Bb1F6E4b93C5165D8b00afEEE38D20
+PladFacet deployed: 0x06D31451998A34547fd33936CB1b7dCc3101806F
 
 Diamond Cut: [
   {
-    facetAddress: '0x6e50e9923a2c1ACCCA2124C9C68c5B669F62E6CB',
+    facetAddress: '0x9F09Ed07FDCbb2e9BB5FF09f86B228A12C0c32C1',
     action: 0,
     functionSelectors: [
       '0xcdffacc6',
@@ -39,7 +32,7 @@ Diamond Cut: [
     ]
   },
   {
-    facetAddress: '0xd3eF233498bF9e6752a2cBc9654371FD43927B2a',
+    facetAddress: '0x6f51b9316B000bbB4Fce7F71DcB802E25F507110',
     action: 0,
     functionSelectors: [
       '0x8da5cb5b',
@@ -50,7 +43,7 @@ Diamond Cut: [
     ]
   },
   {
-    facetAddress: '0x9A12abf9ac5683aC0992a5b76E6D0aa7A782637E',
+    facetAddress: '0x1C3f58f879677Bcf619BbcF1afD0000Bdf661509',
     action: 0,
     functionSelectors: [
       '0xf5b66044',
@@ -64,7 +57,7 @@ Diamond Cut: [
     ]
   },
   {
-    facetAddress: '0x4eDEd7f2867C11979F57c544EC292d0B230FBc6e',
+    facetAddress: '0xf00f7E9bb48A96EDbf71eeAEdc01776397eeE70f',
     action: 0,
     functionSelectors: [
       '0x2a731ec1',
@@ -78,7 +71,7 @@ Diamond Cut: [
     ]
   },
   {
-    facetAddress: '0x9726417b77878825239709950247aD35f821e7e9',
+    facetAddress: '0xf3e3AEf068486cd3a8e46E91382845aCa2967DC9',
     action: 0,
     functionSelectors: [
       '0x574be132',
@@ -102,6 +95,7 @@ Diamond Cut: [
       '0x751a7bfe',
       '0xc8b2bdea',
       '0xac086e37',
+      '0x9ff46728',
       '0xfeabb887',
       '0x2d1a4850',
       '0x9beb487d',
@@ -113,6 +107,7 @@ Diamond Cut: [
       '0x0d2bad5e',
       '0x990d070a',
       '0xcbf9c05c',
+      '0x0ed02904',
       '0xf17637c5',
       '0x7c374f99',
       '0xe49a12dc',
@@ -123,7 +118,7 @@ Diamond Cut: [
     ]
   },
   {
-    facetAddress: '0x269c042bFEa685Bac5591F056E48AC7Bff088F1A',
+    facetAddress: '0x37E37793b684826aDf5018284caf69Aa83590A58',
     action: 0,
     functionSelectors: [
       '0x79ef44a1',
@@ -136,7 +131,7 @@ Diamond Cut: [
     ]
   },
   {
-    facetAddress: '0xD3478906d787271D2B99F2c237B39a713d628212',
+    facetAddress: '0x13b8fedc4407c6788Af043cCD650178a1eEcB94D',
     action: 0,
     functionSelectors: [
       '0xacbf99a2',
@@ -149,7 +144,7 @@ Diamond Cut: [
     ]
   },
   {
-    facetAddress: '0x36caA9b3B5e9c60F65be8068547b27ED8FF40600',
+    facetAddress: '0xb4373301697aD832664F679D2EB8bC91d2FdF170',
     action: 0,
     functionSelectors: [
       '0x78aa1dba',
@@ -160,7 +155,7 @@ Diamond Cut: [
     ]
   },
   {
-    facetAddress: '0x436E94CE5beb9F64390F45FAF7da82793De6190f',
+    facetAddress: '0x866DD66F24Bb1F6E4b93C5165D8b00afEEE38D20',
     action: 0,
     functionSelectors: [
       '0x7e1a0a74',
@@ -172,7 +167,7 @@ Diamond Cut: [
     ]
   },
   {
-    facetAddress: '0x1bb9a4f40687F690583a7F1A9F999Ba2D48f6f99',
+    facetAddress: '0x06D31451998A34547fd33936CB1b7dCc3101806F',
     action: 0,
     functionSelectors: [
       '0x61f4dd40',
@@ -191,8 +186,6 @@ Diamond Cut: [
     ]
   }
 ]
-Diamond cut tx:  0x1f31aef362b8b203399416092bed66e1fa0556171342cc4b1e1b04591f75ba0d
+Diamond cut tx:  0xbcace1842358f4ff5b67e5e5d41a7c50653c2c1ef1c8782d5e903822becfeb9d
 Completed diamond cut
-
-
 </pre>
