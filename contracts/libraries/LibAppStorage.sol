@@ -32,7 +32,7 @@ import {LibDiamond} from "../libraries/LibDiamond.sol";
 // enum LiqudationType {
 //     None, = 0
 //     openForLiqudation,=1
-//     notOpenLiqudation=2
+//     transfertolender=2
 // }
 
 
