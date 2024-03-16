@@ -1,5 +1,7 @@
 # Testnet ortami kontratlari
 <pre>
+Dont forget to take a look here first for new contract facet address
+
 DiamondCutFacet deployed: 0x54321e550c9abF8E9D03ed37604Af4Dd1720b9f0
 Diamond deployed: 0x286701C7ade4f20b2D244c86Ba6865f731047304
 DiamondInit deployed: 0x3e3F868Bfd96611d5d235F2C0528d13Cc0fD2374
