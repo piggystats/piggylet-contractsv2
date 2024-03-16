@@ -39,11 +39,11 @@ contract PaymentFacet{
     //     (lendersLoan) = abi.decode(data, (Loan));
     // }
 
-    function recovery(
-        uint256 _collateralId
-    )external  {
-        LibDiamond.enforceIsContractOwner();
-        LibPayment._recoveryColleteralForTest(_collateralId, msg.sender);
-    }
+    // function recovery(
+    //     uint256 _collateralId
+    // )external  {
+    //     LibDiamond.enforceIsContractOwner();
+    //     LibPayment._recoveryColleteralForTest(_collateralId, msg.sender);
+    // }
 
 }

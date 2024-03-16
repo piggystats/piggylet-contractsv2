@@ -54,7 +54,7 @@ library LibBidAccept {
             //s.idToCollateral[lendersLoan.collateralId] = _collateral;
         }
 
-        uint256 profit = LibPayment._giveLoan(lendersLoan, _timestamp);
+        uint256 profit =LibPayment._acceptBid(lendersLoan, _timestamp);
 
         emit BidAccepted(
             lendersLoan.collateralId,
@@ -76,7 +76,6 @@ library LibBidAccept {
         _verifiyBidAccept(lendersLoan,lenderBid, _timestamp);
 
         {
-            //bytes memory encodedColleteral= s.idToColleretal[lenderBid.collateralId];
             Collateral storage _collateral = s.idToCollateral[lendersLoan.collateralId];
             _collateral.paybackDay = lenderBid.paybackDeadline;//LibBid._getSecondBidPaybackDeadline(lenderBid.collateralId,lenderBid.lenderAddress);
             _collateral.paybackDeadline = lenderBid.paybackDeadline; //LibBid._getSecondBidPaybackDeadline(lenderBid.collateralId,lenderBid.lenderAddress);
@@ -88,7 +87,7 @@ library LibBidAccept {
             //s.idToCollateral[lendersLoan.collateralId] = _collateral;
         }
         
-        uint256 profit = LibPayment._giveLoan(lendersLoan, _timestamp);
+        uint256 profit =LibPayment._acceptBid(lendersLoan, _timestamp);
         emit BidAccepted(
             lendersLoan.collateralId,
             lendersLoan.lenderAddress,
@@ -97,5 +96,4 @@ library LibBidAccept {
             profit
         );
     }
-
 }
