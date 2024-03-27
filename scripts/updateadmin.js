@@ -16,7 +16,7 @@ const { FacetCutAction, getSelectors } = require('./libraries/diamond.js')
 
 async function upgrade() {
   const diamondAddress = '0x1dCE33Ba8a5188234ef6f797Fc8FF118B62DFD16';
-  const oldAdminFacet = '0x2e671FE9d3Af01Cbb598a29BC7421AAf484403B2';
+  const oldAdminFacet = '0x0a9E704d080E6C96D840158437f7Ad1aB55625bD';
 
   const accounts = await ethers.getSigners();
   const contractOwner = accounts[0];

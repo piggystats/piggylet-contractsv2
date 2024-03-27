@@ -4,7 +4,7 @@ import {LibAppStorage,AppStorage, Collateral,Loan,FloorPrice, Bid,Liquidation} f
 import {IERC20} from "../interfaces/IERC20.sol";
 import {LibCollateral} from "./LibCollateral.sol";
 import {LibPayment} from "../libraries/LibPayment.sol";
-import {LibFloorPrice} from "../libraries/LibFloorPrice.sol";
+//import {LibFloorPrice} from "../libraries/LibFloorPrice.sol";
 import {LibLiquidation} from "../libraries/LibLiquidation.sol";
 import {LibBid} from "../libraries/LibBid.sol";
 import {IERC721} from "../interfaces/IERC721.sol";
@@ -237,11 +237,11 @@ library LibAdmin {
     }
 
 
-    function _getFloorPrice(address _CollateralAddress) internal view returns(FloorPrice memory floorPrice){
-        AppStorage storage s = LibAppStorage.diamondStorage();
-        //bytes memory existedLiqudation = s.addressToFloorPrice[_CollateralAddress];
-        (floorPrice) =s.addressTofloorPrice[_CollateralAddress];
-    }
+    // function _getFloorPrice(address _CollateralAddress) internal view returns(FloorPrice memory floorPrice){
+    //     AppStorage storage s = LibAppStorage.diamondStorage();
+    //     //bytes memory existedLiqudation = s.addressToFloorPrice[_CollateralAddress];
+    //     (floorPrice) =s.addressTofloorPrice[_CollateralAddress];
+    // }
     function _getLiqudationData(uint256 _collateralId) internal view returns(Liquidation memory liqudation){
         AppStorage storage s = LibAppStorage.diamondStorage();
         //bytes memory existedLiqudation = s.idToLuqidationData[_collateralId];

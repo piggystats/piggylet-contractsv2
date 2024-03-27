@@ -153,9 +153,9 @@ contract AdminFacet{
     function getLiqudationData(uint256 _collateralId) external view returns(Liquidation memory liqudation){
         (liqudation) = LibAdmin._getLiqudationData(_collateralId);
     }
-    function getFloorPrice(address _collateralAddress) external view returns(FloorPrice memory floorPrice){
-        (floorPrice) = LibAdmin._getFloorPrice(_collateralAddress);
-    }
+    // function getFloorPrice(address _collateralAddress) external view returns(FloorPrice memory floorPrice){
+    //     (floorPrice) = LibAdmin._getFloorPrice(_collateralAddress);
+    // }
 
     function setStatusToPenalty(uint8 _status, uint256 _penalty) external  {
         LibDiamond.enforceIsContractOwner();

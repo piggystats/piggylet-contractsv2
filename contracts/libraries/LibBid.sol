@@ -5,7 +5,7 @@ import {IERC20} from "../interfaces/IERC20.sol";
 import {LibCollateral} from "./LibCollateral.sol";
 import {LibAdmin} from "./LibAdmin.sol";
 import {LibPayment} from "./LibPayment.sol";
-import {LibFloorPrice} from "../libraries/LibFloorPrice.sol";
+//import {LibFloorPrice} from "../libraries/LibFloorPrice.sol";
 
 
 library LibBid {
