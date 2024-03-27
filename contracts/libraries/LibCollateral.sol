@@ -138,34 +138,34 @@ library LibCollateral{
     //     return decodedData.amount;
     // }
 
-    function _checkPrice(
-        address _collateralAddress,
-        uint256 _expectedPrice,
-        address _paymentToken
-    )internal view returns(uint256){
-        require(_expectedPrice > 0, "C001");//Price must be at least 1 wei
-        //AppStorage storage s = LibAppStorage.diamondStorage(); 
-        //uint8  _colleteralStatus = LibAdmin._getCollateralStatus(LibCollateral._getCollateralAddress(_collateralId));
-        uint256 ltv = LibAdmin._getLoanToValueCollateralAddress(_collateralAddress);
+    // function _checkPrice(
+    //     address _collateralAddress,
+    //     uint256 _expectedPrice,
+    //     address _paymentToken
+    // )internal view returns(uint256){
+    //     require(_expectedPrice > 0, "C001");//Price must be at least 1 wei
+    //     //AppStorage storage s = LibAppStorage.diamondStorage(); 
+    //     //uint8  _colleteralStatus = LibAdmin._getCollateralStatus(LibCollateral._getCollateralAddress(_collateralId));
+    //     //uint256 ltv = LibAdmin._getLoanToValueCollateralAddress(_collateralAddress);
 
-        require(ltv > 0,"C002");//LTV is 0
-        if(LibAdmin._getPaymentStatusForToken(_paymentToken) == 2){
-            uint256 floorPrice = LibFloorPrice._getFloorPrice(_collateralAddress);
-            require(_expectedPrice <= ((floorPrice*ltv)/100) && _expectedPrice >= ((floorPrice*10)/100),"C003"); //Price cant be max loan amount
-            return  _expectedPrice;
-        }
-        else if(LibAdmin._getPaymentStatusForToken(_paymentToken) == 1){
-            IERC20 token = IERC20(_paymentToken);
-            uint256 tokenDecimal =  token.decimals();
-            uint256 floorPrice = LibFloorPrice._getFloorPrice(_collateralAddress);//10 eth
-            uint256 floorPriceUSD = (floorPrice*LibAdmin._getETHPrice()/(10**(18-tokenDecimal))/uint256(1000000));//20kdolar
-            require(_expectedPrice <=((floorPriceUSD*ltv)/100) && _expectedPrice >= ((floorPriceUSD*10)/100),"C003"); //Price cant be max loan amount
-            return  _expectedPrice;
-        }
-        else{
-            revert("C004");//payment status not
-        }
-    }
+    //     require(ltv > 0,"C002");//LTV is 0
+    //     if(LibAdmin._getPaymentStatusForToken(_paymentToken) == 2){
+    //         uint256 floorPrice = LibFloorPrice._getFloorPrice(_collateralAddress);
+    //         require(_expectedPrice <= ((floorPrice*ltv)/100) && _expectedPrice >= ((floorPrice*10)/100),"C003"); //Price cant be max loan amount
+    //         return  _expectedPrice;
+    //     }
+    //     else if(LibAdmin._getPaymentStatusForToken(_paymentToken) == 1){
+    //         IERC20 token = IERC20(_paymentToken);
+    //         uint256 tokenDecimal =  token.decimals();
+    //         uint256 floorPrice = LibFloorPrice._getFloorPrice(_collateralAddress);//10 eth
+    //         uint256 floorPriceUSD = (floorPrice*LibAdmin._getETHPrice()/(10**(18-tokenDecimal))/uint256(1000000));//20kdolar
+    //         require(_expectedPrice <=((floorPriceUSD*ltv)/100) && _expectedPrice >= ((floorPriceUSD*10)/100),"C003"); //Price cant be max loan amount
+    //         return  _expectedPrice;
+    //     }
+    //     else{
+    //         revert("C004");//payment status not
+    //     }
+    // }
 
     function _collateralVerify(
         Collateral memory collateralParam,
@@ -178,12 +178,12 @@ library LibCollateral{
         require(LibAdmin._getWhitelistCollateral(collateralParam.collateralAddress),"C009");//This collection is not supported
         require(LibAdmin._getApprovedToken(collateralParam.paymentToken),"C010");//This token is not supported
         
-        uint256 expectedPrice =_checkPrice(
-            collateralParam.collateralAddress, 
-            collateralParam.expectedPrice,
-            collateralParam.paymentToken
-        );
-        collateralParam.expectedPrice = expectedPrice;
+        // uint256 expectedPrice =_checkPrice(
+        //     collateralParam.collateralAddress, 
+        //     collateralParam.expectedPrice,
+        //     collateralParam.paymentToken
+        // );
+        //collateralParam.expectedPrice = expectedPrice;
         collateralParam.listDeadline = _timestamp + (collateralParam.listDeadline * 86400 seconds);
         collateralParam.collateralId = _getCollateralID();
         collateralParam.liquidationType = 0;
@@ -270,12 +270,12 @@ library LibCollateral{
         require(LibAdmin._getWhitelistCollateral(collateralParam.collateralAddress),"C009");//This collection is not supported
         require(LibAdmin._getApprovedToken(collateralParam.paymentToken),"C010");//This token is not supported
         
-        uint256 expectedPrice =_checkPrice(
-            collateralParam.collateralAddress, 
-            collateralParam.expectedPrice,
-            collateralParam.paymentToken
-        );
-        collateralParam.expectedPrice = expectedPrice;
+        // uint256 expectedPrice =_checkPrice(
+        //     collateralParam.collateralAddress, 
+        //     collateralParam.expectedPrice,
+        //     collateralParam.paymentToken
+        // );
+        // collateralParam.expectedPrice = expectedPrice;
         collateralParam.liquidationType = 0;
         collateralParam.listDeadline = _timestamp + (collateralParam.listDeadline * 86400 seconds);
     }
@@ -291,11 +291,11 @@ library LibCollateral{
 
         Collateral memory _collateral = s.idToCollateral[collateralParam.collateralId];
 
-        uint256 expectedPrice =_checkPrice(
-            collateralParam.collateralAddress, 
-            collateralParam.expectedPrice,
-            collateralParam.paymentToken
-        );
+        // uint256 expectedPrice =_checkPrice(
+        //     collateralParam.collateralAddress, 
+        //     collateralParam.expectedPrice,
+        //     collateralParam.paymentToken
+        // );
         
         //Collateral memory decodedData = _decodeColleteral(encodedData);
         require(_collateral.collateralId == collateralParam.collateralId,"C017");//id missmach
@@ -306,7 +306,7 @@ library LibCollateral{
         _collateral.paybackDeadline = collateralParam.paybackDeadline;
         _collateral.paybackDay = collateralParam.paybackDeadline;
         _collateral.paymentToken = collateralParam.paymentToken;
-        _collateral.expectedPrice = expectedPrice;
+        //_collateral.expectedPrice = expectedPrice;
         _collateral.apr = collateralParam.apr;
         _collateral.liquidationType =collateralParam.liquidationType;
 

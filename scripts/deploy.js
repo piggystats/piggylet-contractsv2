@@ -4,8 +4,9 @@
 const { getSelectors, FacetCutAction } = require('./libraries/diamond.js')
 
 async function deployDiamond () {
-  const accounts = await ethers.getSigners()
-  const contractOwner = accounts[0]
+  const accounts = await ethers.getSigners();
+  const contractOwner = accounts[0];
+  console.log('Contract owner address:', contractOwner.address);
 
   // deploy DiamondCutFacet
   const DiamondCutFacet = await ethers.getContractFactory('DiamondCutFacet')
@@ -38,7 +39,7 @@ async function deployDiamond () {
     'AdminFacet',
     'BidFacet',
     'BidUpdateFacet',
-    'FloorPriceFacet',
+    //'FloorPriceFacet',
     'LiquidationFacet',
     'PladFacet'
   ]

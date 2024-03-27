@@ -55,7 +55,6 @@ task('accounts', 'Prints the list of accounts', async () => {
       accounts: [process.env.GOERLI_PRIVATE_KEY]
    }
 
-    
    },
    etherscan :{
      apiKey: process.env.ETHERSCAN_API_KEY
@@ -64,8 +63,7 @@ task('accounts', 'Prints the list of accounts', async () => {
      optimizer: {
        enabled: true,
        runs: 200
-     }
-     ,
+     },
      evmVersion: "london"
    }
  }

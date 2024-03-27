@@ -16,7 +16,7 @@ const { FacetCutAction, getSelectors } = require('./libraries/diamond.js')
 
 async function upgrade() {
   const diamondAddress = '0x1dCE33Ba8a5188234ef6f797Fc8FF118B62DFD16';
-  const oldBidFacet = '0x1f90C8f9deC65332f59Bbb8E30d76370765C727E';
+  const oldBidFacet = '0x7D318b3eE866695A2630CBE947344b52Bc9C8700';
 
   const accounts = await ethers.getSigners();
   const contractOwner = accounts[0];
@@ -24,10 +24,10 @@ async function upgrade() {
 
   // Deploy SimpleStorage
   const BidFacet = await ethers.getContractFactory('BidFacet')
-  //console.log('LiqudationFacet :', LiqudationFacet)
+  //console.log('BidFacet :', BidFacet)
 
   const bidFacet = await BidFacet.deploy()
-  //console.log('await LiqudationFacet.deploy() :', simpleStorageFacet)
+  //console.log('await bidFacet.deploy() :', bidFacet)
 
   await bidFacet.deployed()
   console.log('new bid Facet  deployed:', bidFacet.address)
@@ -42,7 +42,6 @@ async function upgrade() {
   //console.log("oldSelectors",oldSelectors);
 
   console.log('xx')
-
 
   const cut = [
     {
@@ -60,7 +59,7 @@ async function upgrade() {
   const diamondCut = await ethers.getContractAt('IDiamondCut', diamondAddress)
   let tx = await diamondCut.diamondCut(cut, ethers.constants.AddressZero, '0x', { 
     gasLimit: 8000000,
-    gasPrice: ethers.utils.parseUnits('70', 'gwei') 
+    gasPrice: ethers.utils.parseUnits('100', 'gwei') 
   })
   console.log('Diamond cut tx:', tx.hash)
   let receipt = await tx.wait()

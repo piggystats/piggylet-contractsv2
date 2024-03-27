@@ -23,30 +23,29 @@ contract BidFacet {
         }
     }
 
-    // function acceptBid(
-    //     Loan memory lendersLoan,
-    //     uint256 _index
-    // ) external  {
-    //     if(_index == 0){
-    //         LibBidAccept._acceptFirstBid(lendersLoan, block.timestamp);
-    //     }
-    //     else if(_index == 1){
-    //         LibBidAccept._acceptSecondBid(lendersLoan, block.timestamp);
-    //     }
-        
-    // }
+    function acceptBid(
+        Loan memory lendersLoan,
+        uint256 _index
+    ) external  {
+        if(_index == 0){
+            LibBidAccept._acceptFirstBid(lendersLoan, block.timestamp);
+        }
+        else if(_index == 1){
+            LibBidAccept._acceptSecondBid(lendersLoan, block.timestamp);
+        }
+    }
     
 
-    function acceptFirstBid(
-        Loan memory lendersLoan
-    ) external  {
-        LibBidAccept._acceptFirstBid(lendersLoan, block.timestamp);
-    }
-    function acceptSecondBid(
-        Loan memory lendersLoan
-    ) external  {
-        LibBidAccept._acceptSecondBid(lendersLoan, block.timestamp);
-    }
+    // function acceptFirstBid(
+    //     Loan memory lendersLoan
+    // ) external  {
+    //     LibBidAccept._acceptFirstBid(lendersLoan, block.timestamp);
+    // }
+    // function acceptSecondBid(
+    //     Loan memory lendersLoan
+    // ) external  {
+    //     LibBidAccept._acceptSecondBid(lendersLoan, block.timestamp);
+    // }
 
     // function decodeBid(bytes memory data) external pure returns (Bid memory lenderBid) {
     //     (lenderBid) = abi.decode(data, (Bid));
