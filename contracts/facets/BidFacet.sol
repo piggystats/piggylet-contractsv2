@@ -34,20 +34,5 @@ contract BidFacet {
             LibBidAccept._acceptSecondBid(lendersLoan, block.timestamp);
         }
     }
-    
 
-    // function acceptFirstBid(
-    //     Loan memory lendersLoan
-    // ) external  {
-    //     LibBidAccept._acceptFirstBid(lendersLoan, block.timestamp);
-    // }
-    // function acceptSecondBid(
-    //     Loan memory lendersLoan
-    // ) external  {
-    //     LibBidAccept._acceptSecondBid(lendersLoan, block.timestamp);
-    // }
-
-    // function decodeBid(bytes memory data) external pure returns (Bid memory lenderBid) {
-    //     (lenderBid) = abi.decode(data, (Bid));
-    // }
 }

@@ -5,7 +5,7 @@ import {IERC20} from "../interfaces/IERC20.sol";
 import {IERC721} from "../interfaces/IERC721.sol";
 import {LibCollateral} from "./LibCollateral.sol";
 import {LibAdmin} from "./LibAdmin.sol";
-import {LibFloorPrice} from "./LibFloorPrice.sol";
+//import {LibFloorPrice} from "./LibFloorPrice.sol";
 import {LibLiquidation} from "./LibLiquidation.sol";
 import {LibPladFacet} from "./LibPladFacet.sol";
 
@@ -48,19 +48,19 @@ library LibPayment {
         require(LibCollateral._getItemStatus(lendersLoan.collateralId) == 1, "P3");//This colleteral not sended for loan
         require(LibCollateral._getSeller(lendersLoan.collateralId) != lendersLoan.lenderAddress, "P4");//You cant give loan yourself
         
-        uint256 ltv = LibAdmin._getLoanToValueCollateralId(lendersLoan.collateralId);
+        // uint256 ltv = LibAdmin._getLoanToValueCollateralId(lendersLoan.collateralId);
         
-        if(LibAdmin._getPaymentStatusForToken(LibCollateral._getPaymentToken(lendersLoan.collateralId)) == 2){
-            uint256 floorPrice = LibFloorPrice._getFloorPrice(LibCollateral._getCollateralAddress(lendersLoan.collateralId));
-            require(LibCollateral._getExpectedPrice(lendersLoan.collateralId) <=((floorPrice*ltv)/100),"P5");//Price cant be max loan amount
-        }
-        else if(LibAdmin._getPaymentStatusForToken(LibCollateral._getPaymentToken(lendersLoan.collateralId)) == 1){
-            IERC20 token = IERC20(LibCollateral._getPaymentToken(lendersLoan.collateralId));
-            uint256 tokenDecimal =  token.decimals();
-            uint256 floorPrice = LibFloorPrice._getFloorPrice(LibCollateral._getCollateralAddress(lendersLoan.collateralId));
-            uint256 floorPriceUSD = (floorPrice*LibAdmin._getETHPrice()/(10**(18-tokenDecimal))/uint256(1000000)); //100
-            require(LibCollateral._getExpectedPrice(lendersLoan.collateralId) <=((floorPriceUSD*ltv)/100),"P5");//Price cant be max loan amount
-        }
+        // if(LibAdmin._getPaymentStatusForToken(LibCollateral._getPaymentToken(lendersLoan.collateralId)) == 2){
+        //     uint256 floorPrice = LibFloorPrice._getFloorPrice(LibCollateral._getCollateralAddress(lendersLoan.collateralId));
+        //     require(LibCollateral._getExpectedPrice(lendersLoan.collateralId) <=((floorPrice*ltv)/100),"P5");//Price cant be max loan amount
+        // }
+        // else if(LibAdmin._getPaymentStatusForToken(LibCollateral._getPaymentToken(lendersLoan.collateralId)) == 1){
+        //     IERC20 token = IERC20(LibCollateral._getPaymentToken(lendersLoan.collateralId));
+        //     uint256 tokenDecimal =  token.decimals();
+        //     uint256 floorPrice = LibFloorPrice._getFloorPrice(LibCollateral._getCollateralAddress(lendersLoan.collateralId));
+        //     uint256 floorPriceUSD = (floorPrice*LibAdmin._getETHPrice()/(10**(18-tokenDecimal))/uint256(1000000)); //100
+        //     require(LibCollateral._getExpectedPrice(lendersLoan.collateralId) <=((floorPriceUSD*ltv)/100),"P5");//Price cant be max loan amount
+        // }
     }
 
 

@@ -18,23 +18,6 @@ contract BidUpdateFacet {
         }
     
     }
-    // function updateSecondBid(
-    //     Bid memory lenderBid
-    // ) external {
-    //     LibBidUpdate._updateSecondBid(lenderBid, block.timestamp, msg.sender);
-    // }
-
-    // function updateFirstBid(
-    //     Bid memory lenderBid
-    // ) external {
-    //     LibBidUpdate._updateFirstBid(lenderBid, block.timestamp, msg.sender);
-    // }
-    // function updateSecondBid(
-    //     Bid memory lenderBid
-    // ) external {
-    //     LibBidUpdate._updateSecondBid(lenderBid, block.timestamp, msg.sender);
-    // }
-
 
     function cancelBid(
         uint256 _colleteralId,
@@ -47,14 +30,5 @@ contract BidUpdateFacet {
             LibBidUpdate._cancelSecondBid(_colleteralId, block.timestamp, msg.sender);
         }
     }
-    // function cancelFirstBid(
-    //     uint256 _colleteralId
-    // )external {
-    //     LibBidUpdate._cancelFirstBid(_colleteralId, block.timestamp, msg.sender);
-    // }
-    // function cancelSecondBid(
-    //     uint256 _colleteralId
-    // )external {
-    //     LibBidUpdate._cancelSecondBid(_colleteralId, block.timestamp, msg.sender);
-    // }
+
 }

@@ -27,7 +27,7 @@ library LibBidAccept {
         require(lendersLoan.collateralId == lenderBid.collateralId,"B018");//id not same
         require(lendersLoan.lenderAddress == lenderBid.lenderAddress,"B020");//lender address not same
         //lender address not same
-        LibBid._checkPrice(LibCollateral._getCollateralAddress(lenderBid.collateralId), lenderBid.maxPayedAmount,lenderBid.paymentTokenAddress);
+        //LibBid._checkPrice(LibCollateral._getCollateralAddress(lenderBid.collateralId), lenderBid.maxPayedAmount,lenderBid.paymentTokenAddress);
     }
 
     function _acceptFirstBid(

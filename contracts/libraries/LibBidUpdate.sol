@@ -5,7 +5,7 @@ import {IERC20} from "../interfaces/IERC20.sol";
 import {LibCollateral} from "./LibCollateral.sol";
 import {LibAdmin} from "./LibAdmin.sol";
 import {LibBid} from "./LibBid.sol";
-import {LibFloorPrice} from "../libraries/LibFloorPrice.sol";
+//import {LibFloorPrice} from "../libraries/LibFloorPrice.sol";
 
 
 library LibBidUpdate {
@@ -61,8 +61,8 @@ library LibBidUpdate {
         uint256 allowance = IERC20(lenderBid.paymentTokenAddress).allowance(_sender, s.diamondAddress);
         require(allowance >= lenderBid.maxPayedAmount, "B016");//Check the token allowance for bid
 
-        uint256 expectedPrice = LibBid._checkPrice(LibCollateral._getCollateralAddress(lenderBid.collateralId), lenderBid.maxPayedAmount,lenderBid.paymentTokenAddress);
-        lenderBid.maxPayedAmount = expectedPrice;
+        //uint256 expectedPrice = LibBid._checkPrice(LibCollateral._getCollateralAddress(lenderBid.collateralId), lenderBid.maxPayedAmount,lenderBid.paymentTokenAddress);
+        //lenderBid.maxPayedAmount = expectedPrice;
         lenderBid.bidListDeadline = _timestamp + (lenderBid.bidListDeadline * 86400 seconds);
         return lenderBid;
     }

@@ -150,46 +150,46 @@ library LibBid {
         }
     }
 
-    function _checkPrice(
-        address _collateralAddress,
-        uint256 _expectedPrice,
-        address _paymentToken
-    ) internal view returns(uint256){
-        require(_expectedPrice > 0, "B002");//Price must be at least 1 wei
+    // function _checkPrice(
+    //     address _collateralAddress,
+    //     uint256 _expectedPrice,
+    //     address _paymentToken
+    // ) internal view returns(uint256){
+    //     require(_expectedPrice > 0, "B002");//Price must be at least 1 wei
 
-        // if(LibAdmin._getPaymentStatusForToken(_paymentToken) == 2){
-        //     require(_expectedPrice <= ((LibFloorPrice._getFloorPriceETH(_collateralAddress)*LibAdmin._getLoanToValueCollateralAddress(_collateralAddress))/100),"B004");//Price cant be max loan amount
-        //     return  _expectedPrice;
-        // }
-        // else if(LibAdmin._getPaymentStatusForToken(_paymentToken) == 1){
-        //     IERC20 token = IERC20(_paymentToken);
-        //     uint256 tokenDecimal =  token.decimals();
-        //     uint256 floorPrice = LibFloorPrice._getFloorPriceETH(_collateralAddress);
-        //     uint256 floorPriceUSD = (floorPrice*LibAdmin._getETHPrice()/(10**(18-tokenDecimal))/uint256(1000000)); //100
-        //     require(_expectedPrice <= (((floorPriceUSD)*LibAdmin._getLoanToValueCollateralAddress(_collateralAddress))/100),"B004");//Price cant be max loan amount
-        //     return  _expectedPrice;
-        // }
-        uint256 ltv = LibAdmin._getLoanToValueCollateralAddress(_collateralAddress);
+    //     // if(LibAdmin._getPaymentStatusForToken(_paymentToken) == 2){
+    //     //     require(_expectedPrice <= ((LibFloorPrice._getFloorPriceETH(_collateralAddress)*LibAdmin._getLoanToValueCollateralAddress(_collateralAddress))/100),"B004");//Price cant be max loan amount
+    //     //     return  _expectedPrice;
+    //     // }
+    //     // else if(LibAdmin._getPaymentStatusForToken(_paymentToken) == 1){
+    //     //     IERC20 token = IERC20(_paymentToken);
+    //     //     uint256 tokenDecimal =  token.decimals();
+    //     //     uint256 floorPrice = LibFloorPrice._getFloorPriceETH(_collateralAddress);
+    //     //     uint256 floorPriceUSD = (floorPrice*LibAdmin._getETHPrice()/(10**(18-tokenDecimal))/uint256(1000000)); //100
+    //     //     require(_expectedPrice <= (((floorPriceUSD)*LibAdmin._getLoanToValueCollateralAddress(_collateralAddress))/100),"B004");//Price cant be max loan amount
+    //     //     return  _expectedPrice;
+    //     // }
+    //     uint256 ltv = LibAdmin._getLoanToValueCollateralAddress(_collateralAddress);
 
-        require(ltv > 0,"C002");//LTV is 0
-        if(LibAdmin._getPaymentStatusForToken(_paymentToken) == 2){
-            uint256 floorPrice = LibFloorPrice._getFloorPrice(_collateralAddress);
-            require(_expectedPrice <= ((floorPrice*ltv)/100) && _expectedPrice >= ((floorPrice*10)/100),"B004"); //Price cant be max loan amount
-            return  _expectedPrice;
-        }
-        else if(LibAdmin._getPaymentStatusForToken(_paymentToken) == 1){
-            IERC20 token = IERC20(_paymentToken);
-            uint256 tokenDecimal =  token.decimals();
-            uint256 floorPrice = LibFloorPrice._getFloorPrice(_collateralAddress);
-            uint256 floorPriceUSD = (floorPrice*LibAdmin._getETHPrice()/(10**(18-tokenDecimal))/uint256(1000000));
-            require(_expectedPrice <=((floorPriceUSD*ltv)/100) && _expectedPrice >= ((floorPriceUSD*10)/100),"B004"); //Price cant be max loan amount
-            return  _expectedPrice;
-        }
-        else{
-            revert("C004");//payment status not
-        }
+    //     require(ltv > 0,"C002");//LTV is 0
+    //     if(LibAdmin._getPaymentStatusForToken(_paymentToken) == 2){
+    //         uint256 floorPrice = LibFloorPrice._getFloorPrice(_collateralAddress);
+    //         require(_expectedPrice <= ((floorPrice*ltv)/100) && _expectedPrice >= ((floorPrice*10)/100),"B004"); //Price cant be max loan amount
+    //         return  _expectedPrice;
+    //     }
+    //     else if(LibAdmin._getPaymentStatusForToken(_paymentToken) == 1){
+    //         IERC20 token = IERC20(_paymentToken);
+    //         uint256 tokenDecimal =  token.decimals();
+    //         uint256 floorPrice = LibFloorPrice._getFloorPrice(_collateralAddress);
+    //         uint256 floorPriceUSD = (floorPrice*LibAdmin._getETHPrice()/(10**(18-tokenDecimal))/uint256(1000000));
+    //         require(_expectedPrice <=((floorPriceUSD*ltv)/100) && _expectedPrice >= ((floorPriceUSD*10)/100),"B004"); //Price cant be max loan amount
+    //         return  _expectedPrice;
+    //     }
+    //     else{
+    //         revert("C004");//payment status not
+    //     }
         
-    }
+    // }
 
     function _verifyBid(
         Bid memory lenderBid,
@@ -206,12 +206,12 @@ library LibBid {
         require(lenderBid.bidListDeadline >= 7, "B020");//List deadline should be more than 7 days 
         //require(lenderBid.apr > 0, "B021");//APR Must be greater than zero"
         require(lenderBid.apr >= 1  && lenderBid.apr <= 999 , "B021");//APR Must be greater than zero"
-        uint256 expectedPrice = _checkPrice(
-            LibCollateral._getCollateralAddress(lenderBid.collateralId), 
-            lenderBid.maxPayedAmount,
-            lenderBid.paymentTokenAddress
-        );
-        lenderBid.maxPayedAmount = expectedPrice;
+        // uint256 expectedPrice = _checkPrice(
+        //     LibCollateral._getCollateralAddress(lenderBid.collateralId), 
+        //     lenderBid.maxPayedAmount,
+        //     lenderBid.paymentTokenAddress
+        // );
+        //lenderBid.maxPayedAmount = expectedPrice;
         lenderBid.bidListDeadline =  _timestamp + (lenderBid.bidListDeadline * 86400 seconds);
         return lenderBid;
     }
