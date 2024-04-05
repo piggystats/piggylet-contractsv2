@@ -26,6 +26,7 @@ library LibBidAccept {
         require(LibCollateral._getItemStatus(lenderBid.collateralId) != 5,"B018");//already finded loann
         require(lendersLoan.collateralId == lenderBid.collateralId,"B018");//id not same
         require(lendersLoan.lenderAddress == lenderBid.lenderAddress,"B020");//lender address not same
+        require(lendersLoan.liquidationType == lenderBid.liquidationType,"B039");//lender address not same
         //lender address not same
         //LibBid._checkPrice(LibCollateral._getCollateralAddress(lenderBid.collateralId), lenderBid.maxPayedAmount,lenderBid.paymentTokenAddress);
     }
@@ -54,13 +55,13 @@ library LibBidAccept {
             //s.idToCollateral[lendersLoan.collateralId] = _collateral;
         }
 
-        uint256 profit =LibPayment._acceptBid(lendersLoan, _timestamp);
+        (uint256 profit,uint256 tresh) = LibPayment._acceptBid(lendersLoan, _timestamp);
 
         emit BidAccepted(
             lendersLoan.collateralId,
             lendersLoan.lenderAddress,
             0,
-            LibAdmin._getLiquidationTresholdCollateral(lendersLoan.collateralId),
+            tresh,
             profit
         );
     }
@@ -87,12 +88,14 @@ library LibBidAccept {
             //s.idToCollateral[lendersLoan.collateralId] = _collateral;
         }
         
-        uint256 profit =LibPayment._acceptBid(lendersLoan, _timestamp);
+        (uint256 profit,uint256 tresh) = LibPayment._acceptBid(lendersLoan, _timestamp);
+
+        
         emit BidAccepted(
             lendersLoan.collateralId,
             lendersLoan.lenderAddress,
             1,
-            LibAdmin._getLiquidationTresholdCollateral(lendersLoan.collateralId),
+            tresh,
             profit
         );
     }
