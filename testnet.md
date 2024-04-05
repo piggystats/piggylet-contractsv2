@@ -192,7 +192,7 @@ Diamond cut tx:  0xbcace1842358f4ff5b67e5e5d41a7c50653c2c1ef1c8782d5e903822becfe
 Completed diamond cut
 
 
-Testnet payment facet 0xCe8a975b440D70F5a4F9EacB6095e4360dd1f036
-testnet bid facet  0x36AE025012F8FC75E07a2970E017B155F0636761 
+Testnet payment facet 0x51d5bD2c62A707C2673cBDB84920a04253e41806
+testnet bid facet  0x86D11F74f17Bd3373c967733DE69Cd5Fe69a018d 
 Testnet bid update facet 0xC621099e53E90b0B158329cF1215c4cb513Fccf7
 </pre>

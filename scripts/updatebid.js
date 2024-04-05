@@ -15,8 +15,8 @@ const { FacetCutAction, getSelectors } = require('./libraries/diamond.js')
 //hem libten hem facetten
 
 async function upgrade() {
-  const diamondAddress = '0x1dCE33Ba8a5188234ef6f797Fc8FF118B62DFD16';
-  const oldBidFacet = '0x1c2d59F49029167Ccde714d62874F07b069F4503';
+  const diamondAddress = '0x286701C7ade4f20b2D244c86Ba6865f731047304';
+  const oldBidFacet = '0x36AE025012F8FC75E07a2970E017B155F0636761';
 
   const accounts = await ethers.getSigners();
   const contractOwner = accounts[0];
