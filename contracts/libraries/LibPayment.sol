@@ -420,25 +420,24 @@ library LibPayment {
     }
 
 
-    function _verifiyTransferToLenderNotLiqColleteral(
-        uint256 _collateralId,
-        uint256 _timestamp,
-        address _sender
-    ) internal view{
-        //AppStorage storage s = LibAppStorage.diamondStorage();
-        //require(s.idToLoan[_collateralId].length >0,"P014");//Didnt finded loan
-        require(_timestamp > LibCollateral._getPaybackDeadline(_collateralId), "P15");//Waiting for borrowers payback
-        require(LibCollateral._getItemStatus(_collateralId) == 5, "P14");
-        require(_sender == _getLenderAddress(_collateralId),"P16");//you are not lender
-    }
+    // function _verifiyTransferToLenderNotLiqColleteral(
+    //     uint256 _collateralId,
+    //     uint256 _timestamp,
+    //     address _sender
+    // ) internal view{
+    //     //AppStorage storage s = LibAppStorage.diamondStorage();
+    //     //require(s.idToLoan[_collateralId].length >0,"P014");//Didnt finded loan
+    //     require(_timestamp > LibCollateral._getPaybackDeadline(_collateralId), "P15");//Waiting for borrowers payback
+    //     //require(LibCollateral._getItemStatus(_collateralId) == 5, "P14");
+    //     require(_sender == _getLenderAddress(_collateralId),"P16");//you are not lender
+    // }
 
-    function _verifiyTransferToLenderAfterLiqColleteral(
+    function _verifiyTransferToLender(
         uint256 _collateralId,
         uint256 _timestamp,
         address _sender
     ) internal view{
-        require(LibCollateral._getItemStatus(_collateralId) == 6, "P24");
-        require(_timestamp > LibCollateral._getListDeadline(_collateralId), "P17");//Waiting for liqudators
+        require(_timestamp > LibCollateral._getListDeadline(_collateralId), "P17");//Waiting for liqudators or  borrowers
         require(_sender == _getLenderAddress(_collateralId),"P16");
         
     }
@@ -449,7 +448,7 @@ library LibPayment {
         address _sender
     ) internal {
         AppStorage storage s = LibAppStorage.diamondStorage();
-        _verifiyTransferToLenderAfterLiqColleteral(_collateralId, _timestamp, _sender);
+        _verifiyTransferToLender(_collateralId, _timestamp, _sender);
         {
             //bytes memory existedColleteral = s.idToCollateral[_collateralId];
             Collateral memory _collateral = s.idToCollateral[_collateralId];
@@ -469,7 +468,7 @@ library LibPayment {
         address _sender
     )  internal {
         AppStorage storage s = LibAppStorage.diamondStorage();
-        _verifiyTransferToLenderNotLiqColleteral(_collateralId, _timestamp, _sender);
+        _verifiyTransferToLender(_collateralId, _timestamp, _sender);
 
         {
             //bytes memory existedColleteral = s.idToCollateral[_collateralId];
@@ -524,7 +523,7 @@ library LibPayment {
     //     emit ChangedItemStatusTo(_collateralId, 7);
     // }
 
-    
+
     // function _increasePaybackForLenderDeal(
     //     uint256 _collateralId
     // ) internal {
