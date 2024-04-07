@@ -437,7 +437,7 @@ library LibPayment {
         uint256 _timestamp,
         address _sender
     ) internal view{
-        require(LibCollateral._getItemStatus(_collateralId) == 5, "P14");
+        require(LibCollateral._getItemStatus(_collateralId) == 6, "P24");
         require(_timestamp > LibCollateral._getListDeadline(_collateralId), "P17");//Waiting for liqudators
         require(_sender == _getLenderAddress(_collateralId),"P16");
         
@@ -522,5 +522,32 @@ library LibPayment {
 
     //     IERC721(LibCollateral._getCollateralAddress(_collateralId)).transferFrom(s.diamondAddress, _sender, LibCollateral._getTokenID(_collateralId));
     //     emit ChangedItemStatusTo(_collateralId, 7);
+    // }
+
+    
+    // function _increasePaybackForLenderDeal(
+    //     uint256 _collateralId
+    // ) internal {
+    //     AppStorage storage s = LibAppStorage.diamondStorage();
+    //     {
+    //         //bytes memory existedColleteral = s.idToCollateral[_collateralId];
+    //         Collateral memory _collateral = s.idToCollateral[_collateralId];
+    //         _collateral.paybackDeadline = 0;
+    //         //bytes memory _encodedData = LibCollateral._encodeColleteral(decodedData);
+    //         s.idToCollateral[_collateralId] = _collateral;
+    //     }
+    // }
+
+    // function _increaseListdeadlineForLenderDeal(
+    //     uint256 _collateralId
+    // ) internal {
+    //     AppStorage storage s = LibAppStorage.diamondStorage();
+    //     {
+    //         //bytes memory existedColleteral = s.idToCollateral[_collateralId];
+    //         Collateral memory _collateral = s.idToCollateral[_collateralId];
+    //         _collateral.listDeadline = 0;
+    //         //bytes memory _encodedData = LibCollateral._encodeColleteral(decodedData);
+    //         s.idToCollateral[_collateralId] = _collateral;
+    //     }
     // }
 }

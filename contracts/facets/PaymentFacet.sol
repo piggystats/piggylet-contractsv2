@@ -46,4 +46,21 @@ contract PaymentFacet{
     //     LibPayment._recoveryColleteralForTest(_collateralId, msg.sender);
     // }
 
+
+    // just for increase time for test
+
+    // function makePaybackTimeZero(
+    //     uint256 _collateralId
+    // )external  {
+    //     LibDiamond.enforceIsContractOwner();
+    //     LibPayment._increasePaybackForLenderDeal(_collateralId);
+    // }
+
+    // function makeListdeadlineTimeZero(
+    //     uint256 _collateralId
+    // )external  {
+    //     LibDiamond.enforceIsContractOwner();
+    //     LibPayment._increaseListdeadlineForLenderDeal(_collateralId);
+    // }
+
 }
