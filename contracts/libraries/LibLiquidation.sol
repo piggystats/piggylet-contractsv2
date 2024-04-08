@@ -164,9 +164,6 @@ library LibLiquidation {
         
         uint256 allowance = IERC20(LibCollateral._getPaymentToken(_collateralId)).allowance(_sender, s.diamondAddress);
         require(allowance >=  LibLiquidation._getLiquidationListingPrice(_collateralId), "P013");//Check the token allowance for liqudation market
-        
-
-        
 
         IERC20(LibCollateral._getPaymentToken(_collateralId)).transferFrom(_sender ,LibPayment._getLenderAddress(_collateralId), lender);
         IERC20(LibCollateral._getPaymentToken(_collateralId)).transferFrom(_sender, s.diamondAddress, fee);

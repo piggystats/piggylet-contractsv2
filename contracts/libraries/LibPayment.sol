@@ -420,19 +420,19 @@ library LibPayment {
     }
 
 
-    // function _verifiyTransferToLenderNotLiqColleteral(
-    //     uint256 _collateralId,
-    //     uint256 _timestamp,
-    //     address _sender
-    // ) internal view{
-    //     //AppStorage storage s = LibAppStorage.diamondStorage();
-    //     //require(s.idToLoan[_collateralId].length >0,"P014");//Didnt finded loan
-    //     require(_timestamp > LibCollateral._getPaybackDeadline(_collateralId), "P15");//Waiting for borrowers payback
-    //     //require(LibCollateral._getItemStatus(_collateralId) == 5, "P14");
-    //     require(_sender == _getLenderAddress(_collateralId),"P16");//you are not lender
-    // }
+    function _verifiyTransferToLenderNotLiqColleteral(
+        uint256 _collateralId,
+        uint256 _timestamp,
+        address _sender
+    ) internal view{
+        //AppStorage storage s = LibAppStorage.diamondStorage();
+        //require(s.idToLoan[_collateralId].length >0,"P014");//Didnt finded loan
+        require(_timestamp > LibCollateral._getPaybackDeadline(_collateralId), "P15");//Waiting for borrowers payback
+        //require(LibCollateral._getItemStatus(_collateralId) == 5, "P14");
+        require(_sender == _getLenderAddress(_collateralId),"P16");//you are not lender
+    }
 
-    function _verifiyTransferToLender(
+    function _verifiyTransferToLenderAfterLiqMarket(
         uint256 _collateralId,
         uint256 _timestamp,
         address _sender
@@ -448,7 +448,7 @@ library LibPayment {
         address _sender
     ) internal {
         AppStorage storage s = LibAppStorage.diamondStorage();
-        _verifiyTransferToLender(_collateralId, _timestamp, _sender);
+        _verifiyTransferToLenderAfterLiqMarket(_collateralId, _timestamp, _sender);
         {
             //bytes memory existedColleteral = s.idToCollateral[_collateralId];
             Collateral memory _collateral = s.idToCollateral[_collateralId];
@@ -468,7 +468,7 @@ library LibPayment {
         address _sender
     )  internal {
         AppStorage storage s = LibAppStorage.diamondStorage();
-        _verifiyTransferToLender(_collateralId, _timestamp, _sender);
+        _verifiyTransferToLenderNotLiqColleteral(_collateralId, _timestamp, _sender);
 
         {
             //bytes memory existedColleteral = s.idToCollateral[_collateralId];
