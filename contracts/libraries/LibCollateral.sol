@@ -171,12 +171,12 @@ library LibCollateral{
         Collateral memory collateralParam,
         uint256 _timestamp
     ) internal view returns(Collateral memory){
-        require(collateralParam.paybackDeadline <= 90 && collateralParam.paybackDeadline ==collateralParam.paybackDay , "C005");//Deadine should be less than 90 days s
-        require(collateralParam.listDeadline <= 30, "C006");//List deadline should be less than 30 days 
-        require(collateralParam.listDeadline >= 7, "C007");//List deadline should be more than 7 days 
-        require(collateralParam.apr >= 1  &&collateralParam.apr <= 999 , "C008");//APR Must be greater than zero"
-        require(LibAdmin._getWhitelistCollateral(collateralParam.collateralAddress),"C009");//This collection is not supported
-        require(LibAdmin._getApprovedToken(collateralParam.paymentToken),"C010");//This token is not supported
+        require(collateralParam.paybackDeadline <= 90 && collateralParam.paybackDeadline ==collateralParam.paybackDay , "C1");//Deadine should be less than 90 days s
+        require(collateralParam.listDeadline <= 30 && collateralParam.listDeadline >= 7, "C2");//List deadline should be less than 30 days 
+        //require(collateralParam.listDeadline >= 7, "C007");//List deadline should be more than 7 days 
+        require(collateralParam.apr >= 1  &&collateralParam.apr <= 999 , "C3");//APR Must be greater than zero"
+        require(LibAdmin._getWhitelistCollateral(collateralParam.collateralAddress),"C4");//This collection is not supported
+        require(LibAdmin._getApprovedToken(collateralParam.paymentToken),"C5");//This token is not supported
         
         // uint256 expectedPrice =_checkPrice(
         //     collateralParam.collateralAddress, 
@@ -194,11 +194,11 @@ library LibCollateral{
         Collateral memory collateralParam,
         uint256 _timestamp
     ) internal view returns(Collateral memory){
-        require(collateralParam.paybackDeadline <= 90 && collateralParam.paybackDeadline ==collateralParam.paybackDay , "C005");//Deadine should be less than 90 days 
-        require(collateralParam.listDeadline <= 30, "C006");//List deadline should be less than 30 days 
-        require(collateralParam.listDeadline >= 7, "C007");//List deadline should be more than 7 days 
-        require(collateralParam.status == 2, "C012");//This item cant search bids
-        require(LibAdmin._getWhitelistCollateral(collateralParam.collateralAddress),"C009");//This collection is not supported
+        require(collateralParam.paybackDeadline <= 90 && collateralParam.paybackDeadline == collateralParam.paybackDay , "C6");//Deadine should be less than 90 days 
+        require(collateralParam.listDeadline <= 30 && collateralParam.listDeadline >= 7, "C7");//List deadline should be less than 30 days 
+        //require(collateralParam.listDeadline >= 7, "C007");//List deadline should be more than 7 days 
+        require(collateralParam.status == 2, "C8");//This item cant search bids
+        require(LibAdmin._getWhitelistCollateral(collateralParam.collateralAddress),"C9");//This collection is not supported
         
         collateralParam.listDeadline = _timestamp + (collateralParam.listDeadline * 86400 seconds);
         collateralParam.liquidationType = 0;
@@ -260,15 +260,15 @@ library LibCollateral{
         address _sender,
         uint256 _timestamp
     )internal view{
-        require(_getSeller(collateralParam.collateralId) == _sender, "C014");//You are not the borroer
-        require(_getItemStatus(collateralParam.collateralId) != 5,"C015");//finded loan
-        require(_getItemStatus(collateralParam.collateralId)== 1 || _getItemStatus(collateralParam.collateralId) == 2,"C016");//not supported
-        require(collateralParam.paybackDeadline <= 90 && collateralParam.paybackDeadline == collateralParam.paybackDay , "C005");//Deadine should be less than 90 days 
-        require(collateralParam.listDeadline <= 30, "C006");//List deadline should be less than 30 days 
-        require(collateralParam.listDeadline >= 7, "C007");//List deadline should be more than 7 days 
-        require(collateralParam.apr >= 1  &&collateralParam.apr <= 999 , "C008");//APR Must be greater than zero"
-        require(LibAdmin._getWhitelistCollateral(collateralParam.collateralAddress),"C009");//This collection is not supported
-        require(LibAdmin._getApprovedToken(collateralParam.paymentToken),"C010");//This token is not supported
+        require(_getSeller(collateralParam.collateralId) == _sender, "C10");//You are not the borroer
+        require(_getItemStatus(collateralParam.collateralId) != 5,"C11");//finded loan
+        require(_getItemStatus(collateralParam.collateralId)== 1 || _getItemStatus(collateralParam.collateralId) == 2,"C12");//not supported
+        require(collateralParam.paybackDeadline <= 90 && collateralParam.paybackDeadline == collateralParam.paybackDay , "C13");//Deadine should be less than 90 days 
+        require(collateralParam.listDeadline <= 30 && collateralParam.listDeadline >= 7, "C14");//List deadline should be less than 30 days 
+        //require(collateralParam.listDeadline >= 7, "C007");//List deadline should be more than 7 days 
+        require(collateralParam.apr >= 1  &&collateralParam.apr <= 999 , "C15");//APR Must be greater than zero"
+        require(LibAdmin._getWhitelistCollateral(collateralParam.collateralAddress),"C16");//This collection is not supported
+        require(LibAdmin._getApprovedToken(collateralParam.paymentToken),"C17");//This token is not supported
         
         // uint256 expectedPrice =_checkPrice(
         //     collateralParam.collateralAddress, 
@@ -298,9 +298,9 @@ library LibCollateral{
         // );
         
         //Collateral memory decodedData = _decodeColleteral(encodedData);
-        require(_collateral.collateralId == collateralParam.collateralId,"C017");//id missmach
-        require(_collateral.collateralAddress == collateralParam.collateralAddress,"C018");
-        require(_collateral.tokenId == collateralParam.tokenId,"C020");//address missmatch
+        require(_collateral.collateralId == collateralParam.collateralId,"C18");//id missmach
+        require(_collateral.collateralAddress == collateralParam.collateralAddress,"C19");
+        require(_collateral.tokenId == collateralParam.tokenId,"C20");//address missmatch
         
         _collateral.listDeadline = collateralParam.listDeadline;
         _collateral.paybackDeadline = collateralParam.paybackDeadline;
@@ -325,8 +325,8 @@ library LibCollateral{
     ) internal {
         AppStorage storage s = LibAppStorage.diamondStorage();
         
-        require(_getSeller(_collateralId) == _sender, "C014");//You are not the borroer
-        require(_getItemStatus(_collateralId)== 1 || _getItemStatus(_collateralId) == 2,"C016");//not supported
+        require(_getSeller(_collateralId) == _sender, "C21");//You are not the borroer
+        require(_getItemStatus(_collateralId)== 1 || _getItemStatus(_collateralId) == 2,"C22");//not supported
 
         // bytes memory existedColleteral = s.idToCollateral[_collateralId];
         Collateral memory _collateral = s.idToCollateral[_collateralId];
@@ -339,9 +339,5 @@ library LibCollateral{
 
         emit ChangedItemStatusTo(_collateralId, 11);
 
-        
-        
     }
-
-
 }

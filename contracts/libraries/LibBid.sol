@@ -146,7 +146,7 @@ library LibBid {
             _createSecondBid(lenderBid,_timeStamp,_sender);
         }
         else{
-            revert("B001");//Lender can give only 2 bid for each item.
+            revert("B1");//Lender can give only 2 bid for each item.
         }
     }
 
@@ -197,15 +197,13 @@ library LibBid {
         address _sender
     ) internal view returns(Bid memory) {
         AppStorage storage s = LibAppStorage.diamondStorage();
-        require(s.idToLoan[lenderBid.collateralId].collateralId == 0,"B006");//Already findeded loan
-        require(LibCollateral._getSeller(lenderBid.collateralId) != _sender, "B007");//You cant bid yourself
-        require(LibAdmin._getApprovedToken(lenderBid.paymentTokenAddress),"B008");//This token is not supported
-        require(_timestamp <= LibCollateral._getListDeadline(lenderBid.collateralId), "B010");//ListDeadline
-        require(lenderBid.paybackDeadline <= 90 , "B018");//Deadine should be less than 90 days 
-        require(lenderBid.bidListDeadline <= 30, "B019");//List deadline should be less than 30 days 
-        require(lenderBid.bidListDeadline >= 7, "B020");//List deadline should be more than 7 days 
-        //require(lenderBid.apr > 0, "B021");//APR Must be greater than zero"
-        require(lenderBid.apr >= 1  && lenderBid.apr <= 999 , "B021");//APR Must be greater than zero"
+        require(s.idToLoan[lenderBid.collateralId].collateralId == 0,"B2");//Already findeded loan
+        require(LibCollateral._getSeller(lenderBid.collateralId) != _sender, "B3");//You cant bid yourself
+        require(LibAdmin._getApprovedToken(lenderBid.paymentTokenAddress),"B4");//This token is not supported
+        require(_timestamp <= LibCollateral._getListDeadline(lenderBid.collateralId), "B5");//ListDeadline
+        require(lenderBid.paybackDeadline <= 90, "B6");//Deadine should be less than 90 days 
+        require(lenderBid.bidListDeadline <= 30 && lenderBid.bidListDeadline >= 7, "B7");//List deadline should be less than 30 days 
+        require(lenderBid.apr >= 1  && lenderBid.apr <= 999 , "B8");//APR Must be greater than zero"
         // uint256 expectedPrice = _checkPrice(
         //     LibCollateral._getCollateralAddress(lenderBid.collateralId), 
         //     lenderBid.maxPayedAmount,
@@ -222,7 +220,7 @@ library LibBid {
         address _sender
     )internal {
         AppStorage storage s = LibAppStorage.diamondStorage();
-        require(s.idToFirstBid[lenderBid.collateralId][_sender].collateralId == 0,"B006");
+        require(s.idToFirstBid[lenderBid.collateralId][_sender].collateralId == 0,"B9");
 
         Bid memory verifiedBid= _verifyBid(lenderBid, _timestamp, _sender);
         //bytes memory encodedData = _encodeBid(verifiedBid);
@@ -255,7 +253,7 @@ library LibBid {
             emit SecondBidCreated(verifiedBid);
         }
         else{
-            revert("B011");//1 stable currency and 1 wETH each colleteral"
+            revert("B10");//1 stable currency and 1 wETH each colleteral"
         }
     }
 

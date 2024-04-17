@@ -44,9 +44,9 @@ library LibPayment {
         Loan memory lendersLoan,
         uint256 _timeStamp
     ) internal view {
-        require(LibCollateral._getListDeadline(lendersLoan.collateralId) >= _timeStamp, "P2");//List Deadline
-        require(LibCollateral._getItemStatus(lendersLoan.collateralId) == 1, "P3");//This colleteral not sended for loan
-        require(LibCollateral._getSeller(lendersLoan.collateralId) != lendersLoan.lenderAddress, "P4");//You cant give loan yourself
+        require(LibCollateral._getListDeadline(lendersLoan.collateralId) >= _timeStamp, "P1");//List Deadline
+        require(LibCollateral._getItemStatus(lendersLoan.collateralId) == 1, "P2");//This colleteral not sended for loan
+        require(LibCollateral._getSeller(lendersLoan.collateralId) != lendersLoan.lenderAddress, "P3");//You cant give loan yourself
         
         // uint256 ltv = LibAdmin._getLoanToValueCollateralId(lendersLoan.collateralId);
         
@@ -263,7 +263,7 @@ library LibPayment {
             //platformFee += _addLiqFee(_collateralId);
             uint256 allowance = IERC20(LibCollateral._getPaymentToken(_collateralId)).allowance(_sender, s.diamondAddress);
             //buradakinde add liq fee
-            require(allowance >= (payedAmount + _calculateTransferToLenderFee(_collateralId)), "P9");//Check the token allowance for loan"
+            require(allowance >= (payedAmount + _calculateTransferToLenderFee(_collateralId)), "P4");//Check the token allowance for loan"
             //require(allowance >= payedAmount, "P009");//Check the token allowance for loan"
             return (payedAmount,platformFee,_calculateTransferToLenderFee(_collateralId));
             //1 ether ,0.08, 0.0025 ether
@@ -276,7 +276,7 @@ library LibPayment {
             uint256 allowance = IERC20(LibCollateral._getPaymentToken(_collateralId)).allowance(_sender, s.diamondAddress);
             //buradakinde add liq fee
             //require(allowance >= payedAmount+_addLiqFee(_collateralId, payedAmount), "P009");//Check the token allowance for loan"
-            require(allowance >= payedAmount, "P9");//Check the token allowance for loan"
+            require(allowance >= payedAmount, "P4");//Check the token allowance for loan"
             return (payedAmount,platformFee,0);
         }
     }
@@ -297,7 +297,7 @@ library LibPayment {
             //platformFee += _addLiqFee(_collateralId);
             uint256 allowance = IERC20(LibCollateral._getPaymentToken(_collateralId)).allowance(_lender, s.diamondAddress);
             //add liq fee burada bunu ac
-            require(allowance >= (payedAmount+ _calculateTransferToLenderFee(_collateralId)), "P9");//Check the token allowance for loan"
+            require(allowance >= (payedAmount+ _calculateTransferToLenderFee(_collateralId)), "P4");//Check the token allowance for loan"
             //require(allowance >= payedAmount, "P009");//Check the token allowance for loan"
             
             return (payedAmount ,platformFee,_calculateTransferToLenderFee(_collateralId));
@@ -310,7 +310,7 @@ library LibPayment {
             uint256 allowance = IERC20(LibCollateral._getPaymentToken(_collateralId)).allowance(_lender, s.diamondAddress);
             //add liq fee burada bunu ac
             //require(allowance >= payedAmount+_addLiqFee(_collateralId, payedAmount), "P009");//Check the token allowance for loan"
-            require(allowance >= payedAmount, "P9");//Check the token allowance for loan"
+            require(allowance >= payedAmount, "P4");//Check the token allowance for loan"
 
             return (payedAmount,platformFee,0);
         }
@@ -321,9 +321,9 @@ library LibPayment {
         uint256 _timestamp,
         address _sender
     ) internal view {
-        require(LibCollateral._getPaybackDeadline(_collateralId) >= _timestamp, "P6");//Payback Deadline"
-        require(LibCollateral._getItemStatus(_collateralId) == 5, "P7");//This colleteral need finde loan first
-        require(LibCollateral._getSeller(_collateralId) == _sender, "P8");//you aren not the person for payback
+        require(LibCollateral._getPaybackDeadline(_collateralId) >= _timestamp, "P5");//Payback Deadline"
+        require(LibCollateral._getItemStatus(_collateralId) == 5, "P6");//This colleteral need finde loan first
+        require(LibCollateral._getSeller(_collateralId) == _sender, "P7");//you aren not the person for payback
     }
 
     function _payback(
@@ -427,9 +427,9 @@ library LibPayment {
     ) internal view{
         //AppStorage storage s = LibAppStorage.diamondStorage();
         //require(s.idToLoan[_collateralId].length >0,"P014");//Didnt finded loan
-        require(_timestamp > LibCollateral._getPaybackDeadline(_collateralId), "P15");//Waiting for borrowers payback
+        require(_timestamp > LibCollateral._getPaybackDeadline(_collateralId), "P8");//Waiting for borrowers payback
         //require(LibCollateral._getItemStatus(_collateralId) == 5, "P14");
-        require(_sender == _getLenderAddress(_collateralId),"P16");//you are not lender
+        require(_sender == _getLenderAddress(_collateralId),"P9");//you are not lender
     }
 
     function _verifiyTransferToLenderAfterLiqMarket(
@@ -437,8 +437,8 @@ library LibPayment {
         uint256 _timestamp,
         address _sender
     ) internal view{
-        require(_timestamp > LibCollateral._getListDeadline(_collateralId), "P17");//Waiting for liqudators or  borrowers
-        require(_sender == _getLenderAddress(_collateralId),"P16");
+        require(_timestamp > LibCollateral._getListDeadline(_collateralId), "P10");//Waiting for liqudators
+        require(_sender == _getLenderAddress(_collateralId),"P11");
         
     }
 
@@ -502,7 +502,7 @@ library LibPayment {
             _transferToLenderNotLiqColleteral(_collateralId, _timestamp, _sender);
         }
         else{
-            revert("P019");//Not appropriate status
+            revert("P19");//Not appropriate status
         }
     }
 

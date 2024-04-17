@@ -22,11 +22,11 @@ library LibBidAccept {
         Bid memory lenderBid,
         uint256 _timestamp
     )internal view {
-        require(_timestamp <= LibCollateral._getListDeadline(lenderBid.collateralId), "B010");//ListDeadline
-        require(LibCollateral._getItemStatus(lenderBid.collateralId) != 5,"B018");//already finded loann
-        require(lendersLoan.collateralId == lenderBid.collateralId,"B018");//id not same
-        require(lendersLoan.lenderAddress == lenderBid.lenderAddress,"B020");//lender address not same
-        require(lendersLoan.liquidationType == lenderBid.liquidationType,"B039");//lender address not same
+        require(_timestamp <= LibCollateral._getListDeadline(lenderBid.collateralId), "B11");//ListDeadline
+        require(LibCollateral._getItemStatus(lenderBid.collateralId) != 5,"B12");//already finded loann
+        require(lendersLoan.collateralId == lenderBid.collateralId,"B13");//id not same
+        require(lendersLoan.lenderAddress == lenderBid.lenderAddress,"B14");//lender address not same
+        require(lendersLoan.liquidationType == lenderBid.liquidationType,"B15");//lender address not same
         //lender address not same
         //LibBid._checkPrice(LibCollateral._getCollateralAddress(lenderBid.collateralId), lenderBid.maxPayedAmount,lenderBid.paymentTokenAddress);
     }
