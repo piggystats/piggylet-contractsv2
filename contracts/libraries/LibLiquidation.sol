@@ -132,8 +132,8 @@ library LibLiquidation {
     ) internal view {
         //AppStorage storage s = LibAppStorage.diamondStorage();
         //require(s.idToLoan[_collateralId].length >0,"P10");//Didnt finded loan"
-        require(LibCollateral._getLiquidationType(_collateralId) == 1, "P11");//Item is not open for liqudator
-        require(LibCollateral._getItemStatus(_collateralId) == 6, "P12");//This colleteral not liqudite
+        require(LibCollateral._getLiquidationType(_collateralId) == 1, "L1");//Item is not open for liqudator
+        require(LibCollateral._getItemStatus(_collateralId) == 6, "L2");//This colleteral not liqudite
     }
 
     function _calculateLiquidatorTotalFee(uint256 _collateralId) internal view returns(uint256,uint256){
@@ -163,7 +163,7 @@ library LibLiquidation {
 
         
         uint256 allowance = IERC20(LibCollateral._getPaymentToken(_collateralId)).allowance(_sender, s.diamondAddress);
-        require(allowance >=  LibLiquidation._getLiquidationListingPrice(_collateralId), "P013");//Check the token allowance for liqudation market
+        require(allowance >=  LibLiquidation._getLiquidationListingPrice(_collateralId), "L3");//Check the token allowance for liqudation market
 
         IERC20(LibCollateral._getPaymentToken(_collateralId)).transferFrom(_sender ,LibPayment._getLenderAddress(_collateralId), lender);
         IERC20(LibCollateral._getPaymentToken(_collateralId)).transferFrom(_sender, s.diamondAddress, fee);

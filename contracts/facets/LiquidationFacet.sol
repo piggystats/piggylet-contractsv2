@@ -18,7 +18,7 @@ contract LiquidationFacet  {
         Liquidation[] memory liquidationData
     )external {
         LibDiamond.enforceIsContractOwner();
-        require(liquidationData.length<=20,"L001");
+        require(liquidationData.length<=20,"L0");
         for (uint256 i = 0; i < liquidationData.length; i++){
             LibLiquidation._setLiqColleteral(liquidationData[i]);
         }

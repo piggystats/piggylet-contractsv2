@@ -392,7 +392,7 @@ library LibPayment {
         uint256 contractsProfit = LibAdmin._calculatePaybackFee(LibCollateral._getCollateralAddress(_collateralId),interest);
     
         uint256 allowance = IERC20(LibCollateral._getPaymentToken(_collateralId)).allowance(_sender, s.diamondAddress);
-        require(allowance >= lenderReturnPayment, "P28");//Check the token allowance payback
+        require(allowance >= lenderReturnPayment, "P8");//Check the token allowance payback
 
         return(lenderReturnPayment,contractsProfit);
     }
@@ -413,7 +413,7 @@ library LibPayment {
         uint256 contractsProfit = LibPladFacet._calculateTierPaybackFee(_lender, interest,_colleteralStatus);
     
         uint256 allowance = IERC20(LibCollateral._getPaymentToken(_collateralId)).allowance(_borrower, s.diamondAddress);
-        require(allowance >= lenderReturnPayment, "P28");//Check the token allowance payback
+        require(allowance >= lenderReturnPayment, "P9");//Check the token allowance payback
 
         return(lenderReturnPayment,contractsProfit);
 
@@ -427,9 +427,9 @@ library LibPayment {
     ) internal view{
         //AppStorage storage s = LibAppStorage.diamondStorage();
         //require(s.idToLoan[_collateralId].length >0,"P014");//Didnt finded loan
-        require(_timestamp > LibCollateral._getPaybackDeadline(_collateralId), "P8");//Waiting for borrowers payback
+        require(_timestamp > LibCollateral._getPaybackDeadline(_collateralId), "P10");//Waiting for borrowers payback
         //require(LibCollateral._getItemStatus(_collateralId) == 5, "P14");
-        require(_sender == _getLenderAddress(_collateralId),"P9");//you are not lender
+        require(_sender == _getLenderAddress(_collateralId),"P11");//you are not lender
     }
 
     function _verifiyTransferToLenderAfterLiqMarket(
@@ -437,8 +437,8 @@ library LibPayment {
         uint256 _timestamp,
         address _sender
     ) internal view{
-        require(_timestamp > LibCollateral._getListDeadline(_collateralId), "P10");//Waiting for liqudators
-        require(_sender == _getLenderAddress(_collateralId),"P11");
+        require(_timestamp > LibCollateral._getListDeadline(_collateralId), "P12");//Waiting for liqudators
+        require(_sender == _getLenderAddress(_collateralId),"P13");
         
     }
 
@@ -502,7 +502,7 @@ library LibPayment {
             _transferToLenderNotLiqColleteral(_collateralId, _timestamp, _sender);
         }
         else{
-            revert("P19");//Not appropriate status
+            revert("P14");//Not appropriate status
         }
     }
 

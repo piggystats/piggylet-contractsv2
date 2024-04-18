@@ -20,7 +20,7 @@ task('accounts', 'Prints the list of accounts', async () => {
  * @type import('hardhat/config').HardhatUserConfig
  */
  const ALCHEMY_API_KEY = process.env.ALCHEMY_API_KEY;
-
+ const MAINNET_API_KEY = process.env.INFURA_MAINNET_KEY;
  // Replace this private key with your Goerli account private key
  // To export your private key from Metamask, open Metamask and
  // go to Account Details > Export Private Key
@@ -49,11 +49,17 @@ task('accounts', 'Prints the list of accounts', async () => {
       allowUnlimitedContractSize: true,
       timeout: 100000
     },
+    mainnet: {
+      allowUnlimitedContractSize: true,
+      url: `https://mainnet.infura.io/v3/${MAINNET_API_KEY}`,
+      accounts: [process.env.GOERLI_PRIVATE_KEY]
+   },
     sepolia: {
       allowUnlimitedContractSize: true,
       url: `https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}`,
       accounts: [process.env.GOERLI_PRIVATE_KEY]
-   }
+   },
+   
 
    },
    etherscan :{
