@@ -1,0 +1,49 @@
+{
+  "_format": "hh-zksolc-artifact-1",
+  "contractName": "LibBidAccept",
+  "sourceName": "contracts/libraries/LibBidAccept.sol",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "collateralId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "lenderAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "index",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "treshold",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "profit",
+          "type": "uint256"
+        }
+      ],
+      "name": "BidAccepted",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x00000001012001900000000c0000613d0000008001000039000000400010043f0000000001000416000000000101004b0000000c0000c13d00000020010000390000010000100443000001200000044300000005010000410000000f0001042e000000000100001900000010000104300000000e000004320000000f0001042e000000100001043000000000000000000000000000000000000000000000000000000002000000000000000000000000000000400000010000000000000000007dc6ad82d64d0c5fcc01e4a3738a9d7d7a39f81fb0ffe2bb29228341c4c89a5e",
+  "deployedBytecode": "0x00000001012001900000000c0000613d0000008001000039000000400010043f0000000001000416000000000101004b0000000c0000c13d00000020010000390000010000100443000001200000044300000005010000410000000f0001042e000000000100001900000010000104300000000e000004320000000f0001042e000000100001043000000000000000000000000000000000000000000000000000000002000000000000000000000000000000400000010000000000000000007dc6ad82d64d0c5fcc01e4a3738a9d7d7a39f81fb0ffe2bb29228341c4c89a5e",
+  "linkReferences": {},
+  "deployedLinkReferences": {},
+  "factoryDeps": {}
+}

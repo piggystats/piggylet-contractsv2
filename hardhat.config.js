@@ -2,6 +2,9 @@
 /* global ethers task */
 require('@nomiclabs/hardhat-waffle')
 require("dotenv").config();
+require('@matterlabs/hardhat-zksync-deploy')
+require('@matterlabs/hardhat-zksync-solc')
+require('@matterlabs/hardhat-zksync-ethers')
 //require("@nomicfoundation/hardhat-ethers");
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -33,8 +36,13 @@ task('accounts', 'Prints the list of accounts', async () => {
   */
  module.exports = {
    solidity: '0.8.15',
+   zksolc: {
+    version: "latest",
+    settings: {},
+  },  
    networks :{
     hardhat: {
+      zksync: true,
       forking: {
         url: process.env.ALCHEMY_URL,
         accounts: [
@@ -43,22 +51,18 @@ task('accounts', 'Prints the list of accounts', async () => {
         timeout: 100000
       }
     },
-    ganache: {
-      url: "http://127.0.0.1:9545",
-      accounts: [process.env.GANACHE_PRIVATE_KEY],
-      allowUnlimitedContractSize: true,
-      timeout: 100000
-    },
-    mainnet: {
-      allowUnlimitedContractSize: true,
-      url: `https://mainnet.infura.io/v3/${MAINNET_API_KEY}`,
-      accounts: [process.env.GOERLI_PRIVATE_KEY]
-   },
     sepolia: {
+      zksync: false,
       allowUnlimitedContractSize: true,
       url: `https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}`,
-      accounts: [process.env.GOERLI_PRIVATE_KEY]
+      accounts: [`0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80`,]
    },
+   zkSyncTestnet: {
+    url: "https://sepolia.era.zksync.dev",
+    ethNetwork: "sepolia", // or a Sepolia RPC endpoint from Infura/Alchemy/Chainstack etc.
+    accounts: [`0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80`,],
+    zksync: true,
+  },
    
 
    },

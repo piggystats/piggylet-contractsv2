@@ -1,0 +1,181 @@
+{
+  "_format": "hh-zksolc-artifact-1",
+  "contractName": "LibCollateral",
+  "sourceName": "contracts/libraries/LibCollateral.sol",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "collateralId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint8",
+          "name": "newStauts",
+          "type": "uint8"
+        }
+      ],
+      "name": "ChangedItemStatusTo",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "collateralId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "paybackDeadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "paybackDay",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "listDeadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "expectedPrice",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "apr",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint8",
+              "name": "status",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint8",
+              "name": "liquidationType",
+              "type": "uint8"
+            },
+            {
+              "internalType": "address",
+              "name": "paymentToken",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "collateralAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "seller",
+              "type": "address"
+            }
+          ],
+          "indexed": false,
+          "internalType": "struct Collateral",
+          "name": "colleralBytes",
+          "type": "tuple"
+        }
+      ],
+      "name": "CollateralSendedEvent",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "collateralId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "paybackDeadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "paybackDay",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "listDeadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "expectedPrice",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "apr",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint8",
+              "name": "status",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint8",
+              "name": "liquidationType",
+              "type": "uint8"
+            },
+            {
+              "internalType": "address",
+              "name": "paymentToken",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "collateralAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "seller",
+              "type": "address"
+            }
+          ],
+          "indexed": false,
+          "internalType": "struct Collateral",
+          "name": "colleralBytes",
+          "type": "tuple"
+        }
+      ],
+      "name": "UpdateCollateralPayment",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x00000001012001900000000c0000613d0000008001000039000000400010043f0000000001000416000000000101004b0000000c0000c13d00000020010000390000010000100443000001200000044300000005010000410000000f0001042e000000000100001900000010000104300000000e000004320000000f0001042e00000010000104300000000000000000000000000000000000000000000000000000000200000000000000000000000000000040000001000000000000000000b23aac3931adfff59a704870ac923b1ac6a5fa197ae9bb2dfedf64da07269195",
+  "deployedBytecode": "0x00000001012001900000000c0000613d0000008001000039000000400010043f0000000001000416000000000101004b0000000c0000c13d00000020010000390000010000100443000001200000044300000005010000410000000f0001042e000000000100001900000010000104300000000e000004320000000f0001042e00000010000104300000000000000000000000000000000000000000000000000000000200000000000000000000000000000040000001000000000000000000b23aac3931adfff59a704870ac923b1ac6a5fa197ae9bb2dfedf64da07269195",
+  "linkReferences": {},
+  "deployedLinkReferences": {},
+  "factoryDeps": {}
+}

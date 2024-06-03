@@ -1,0 +1,122 @@
+{
+  "_format": "hh-zksolc-artifact-1",
+  "contractName": "LibBid",
+  "sourceName": "contracts/libraries/LibBid.sol",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "collateralId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "maxPayedAmount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "apr",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "paybackDeadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "bidListDeadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint8",
+              "name": "liquidationType",
+              "type": "uint8"
+            },
+            {
+              "internalType": "address",
+              "name": "paymentTokenAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "lenderAddress",
+              "type": "address"
+            }
+          ],
+          "indexed": false,
+          "internalType": "struct Bid",
+          "name": "bidInfo",
+          "type": "tuple"
+        }
+      ],
+      "name": "FirstBidCreated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "collateralId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "maxPayedAmount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "apr",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "paybackDeadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "bidListDeadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint8",
+              "name": "liquidationType",
+              "type": "uint8"
+            },
+            {
+              "internalType": "address",
+              "name": "paymentTokenAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "lenderAddress",
+              "type": "address"
+            }
+          ],
+          "indexed": false,
+          "internalType": "struct Bid",
+          "name": "bidInfo",
+          "type": "tuple"
+        }
+      ],
+      "name": "SecondBidCreated",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x00000001012001900000000c0000613d0000008001000039000000400010043f0000000001000416000000000101004b0000000c0000c13d00000020010000390000010000100443000001200000044300000005010000410000000f0001042e000000000100001900000010000104300000000e000004320000000f0001042e00000010000104300000000000000000000000000000000000000000000000000000000200000000000000000000000000000040000001000000000000000000c9d0a42555c80d2e0df76d4fdc5459ed124dcbb06a6bebbd5e9b7b5e9946f919",
+  "deployedBytecode": "0x00000001012001900000000c0000613d0000008001000039000000400010043f0000000001000416000000000101004b0000000c0000c13d00000020010000390000010000100443000001200000044300000005010000410000000f0001042e000000000100001900000010000104300000000e000004320000000f0001042e00000010000104300000000000000000000000000000000000000000000000000000000200000000000000000000000000000040000001000000000000000000c9d0a42555c80d2e0df76d4fdc5459ed124dcbb06a6bebbd5e9b7b5e9946f919",
+  "linkReferences": {},
+  "deployedLinkReferences": {},
+  "factoryDeps": {}
+}

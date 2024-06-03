@@ -1,0 +1,1760 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/Diamond.sol": {
+      "lastModificationDate": 1716510931604,
+      "contentHash": "af15bfcd430491a3798ccb3620024d02",
+      "sourceName": "contracts/Diamond.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [
+        "./libraries/LibDiamond.sol",
+        "./interfaces/IDiamondCut.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Diamond"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/libraries/LibDiamond.sol": {
+      "lastModificationDate": 1716510931606,
+      "contentHash": "ad99c555b443b1011aba93333e65bb3a",
+      "sourceName": "contracts/libraries/LibDiamond.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/IDiamondCut.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "LibDiamond"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/interfaces/IDiamondCut.sol": {
+      "lastModificationDate": 1716510931605,
+      "contentHash": "707e073af69d132ebdc36f0b766ed4d2",
+      "sourceName": "contracts/interfaces/IDiamondCut.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IDiamondCut"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/upgradeInitializers/DiamondInit.sol": {
+      "lastModificationDate": 1716510931607,
+      "contentHash": "a721ceb583ffa12ad799996378bcf846",
+      "sourceName": "contracts/upgradeInitializers/DiamondInit.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [
+        "../libraries/LibDiamond.sol",
+        "../interfaces/IDiamondLoupe.sol",
+        "../interfaces/IDiamondCut.sol",
+        "../interfaces/IERC173.sol",
+        "../interfaces/IERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "DiamondInit"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/interfaces/IDiamondLoupe.sol": {
+      "lastModificationDate": 1716510931605,
+      "contentHash": "a471cd6a18e337530aa0fb37a1dd2294",
+      "sourceName": "contracts/interfaces/IDiamondLoupe.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IDiamondLoupe"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/interfaces/IERC173.sol": {
+      "lastModificationDate": 1716510931605,
+      "contentHash": "65e379207bc221335d0eedfe7b077af6",
+      "sourceName": "contracts/interfaces/IERC173.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC173"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/interfaces/IERC165.sol": {
+      "lastModificationDate": 1716510931605,
+      "contentHash": "f8f9ee2c76e1678bfead7a3fad131934",
+      "sourceName": "contracts/interfaces/IERC165.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC165"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/interfaces/IERC721.sol": {
+      "lastModificationDate": 1716510931606,
+      "contentHash": "817424d07dc5c7864a059323147727b9",
+      "sourceName": "contracts/interfaces/IERC721.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [
+        "./IERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC721"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/libraries/LibPayment.sol": {
+      "lastModificationDate": 1716510931607,
+      "contentHash": "1be94d289fcbae0d73d5e8cf3b4ca942",
+      "sourceName": "contracts/libraries/LibPayment.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [
+        "../libraries/LibAppStorage.sol",
+        "../interfaces/IERC20.sol",
+        "../interfaces/IERC721.sol",
+        "./LibCollateral.sol",
+        "./LibAdmin.sol",
+        "./LibLiquidation.sol",
+        "./LibPladFacet.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "LibPayment"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/libraries/LibAppStorage.sol": {
+      "lastModificationDate": 1716510931606,
+      "contentHash": "45001f70652c2f0060f5c68ac3d5c68d",
+      "sourceName": "contracts/libraries/LibAppStorage.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [
+        "../libraries/LibDiamond.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "LibAppStorage"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/interfaces/IERC20.sol": {
+      "lastModificationDate": 1716510931605,
+      "contentHash": "589e613d7136c032583c40c21992e04c",
+      "sourceName": "contracts/interfaces/IERC20.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC20"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/libraries/LibCollateral.sol": {
+      "lastModificationDate": 1716510931606,
+      "contentHash": "23e3eb71aa0f86a2614590ff5f820f28",
+      "sourceName": "contracts/libraries/LibCollateral.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [
+        "../libraries/LibAppStorage.sol",
+        "../interfaces/IERC721.sol",
+        "../interfaces/IERC1155.sol",
+        "../interfaces/IERC20.sol",
+        "../libraries/LibAdmin.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "LibCollateral"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/libraries/LibAdmin.sol": {
+      "lastModificationDate": 1716510931606,
+      "contentHash": "f82fedef3465b27b608600e9b5adcc9d",
+      "sourceName": "contracts/libraries/LibAdmin.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [
+        "../libraries/LibAppStorage.sol",
+        "../interfaces/IERC20.sol",
+        "./LibCollateral.sol",
+        "../libraries/LibPayment.sol",
+        "../libraries/LibLiquidation.sol",
+        "../libraries/LibBid.sol",
+        "../interfaces/IERC721.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "LibAdmin"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/libraries/LibLiquidation.sol": {
+      "lastModificationDate": 1716510931607,
+      "contentHash": "ca6140cce229a504a5f0c973988de5c6",
+      "sourceName": "contracts/libraries/LibLiquidation.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [
+        "../libraries/LibAppStorage.sol",
+        "../interfaces/IERC20.sol",
+        "../interfaces/IERC721.sol",
+        "./LibCollateral.sol",
+        "./LibAdmin.sol",
+        "./LibPayment.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "LibLiquidation"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/libraries/LibPladFacet.sol": {
+      "lastModificationDate": 1716510931607,
+      "contentHash": "fb6e4984a200d007c46508614709c008",
+      "sourceName": "contracts/libraries/LibPladFacet.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [
+        "./LibCollateral.sol",
+        "./LibAdmin.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC721",
+        "IPLAD",
+        "LibPladFacet"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/interfaces/IERC1155.sol": {
+      "lastModificationDate": 1716510931605,
+      "contentHash": "6d7363ea0fde1eb8963f17166b8cacd7",
+      "sourceName": "contracts/interfaces/IERC1155.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [
+        "./IERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC1155"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/libraries/LibBid.sol": {
+      "lastModificationDate": 1716510931606,
+      "contentHash": "649d9debd04ded6a165c177b6ad401cf",
+      "sourceName": "contracts/libraries/LibBid.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [
+        "../libraries/LibAppStorage.sol",
+        "../interfaces/IERC20.sol",
+        "./LibCollateral.sol",
+        "./LibAdmin.sol",
+        "./LibPayment.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "LibBid"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/libraries/LibBidUpdate.sol": {
+      "lastModificationDate": 1716510931606,
+      "contentHash": "777bb050f4fc487636eacea4b0d64468",
+      "sourceName": "contracts/libraries/LibBidUpdate.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [
+        "../libraries/LibAppStorage.sol",
+        "../interfaces/IERC20.sol",
+        "./LibCollateral.sol",
+        "./LibAdmin.sol",
+        "./LibBid.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "LibBidUpdate"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/libraries/LibBidAccept.sol": {
+      "lastModificationDate": 1716510931606,
+      "contentHash": "bedd41b208141b670414ebaeae0a74a7",
+      "sourceName": "contracts/libraries/LibBidAccept.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [
+        "../libraries/LibAppStorage.sol",
+        "../interfaces/IERC20.sol",
+        "./LibCollateral.sol",
+        "./LibAdmin.sol",
+        "./LibPayment.sol",
+        "../libraries/LibBid.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "LibBidAccept"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/facets/PladFacet.sol": {
+      "lastModificationDate": 1716510931605,
+      "contentHash": "845b451e6e479f4ba7146e86f92d8a3c",
+      "sourceName": "contracts/facets/PladFacet.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [
+        "../libraries/LibPladFacet.sol",
+        "../libraries/LibDiamond.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "PladFacet"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/facets/PaymentFacet.sol": {
+      "lastModificationDate": 1716510931605,
+      "contentHash": "1092dfcceb8f71ba7d15d148829ddf35",
+      "sourceName": "contracts/facets/PaymentFacet.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [
+        "../libraries/LibAppStorage.sol",
+        "../libraries/LibPayment.sol",
+        "../libraries/LibDiamond.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "PaymentFacet"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/facets/OwnershipFacet.sol": {
+      "lastModificationDate": 1716510931605,
+      "contentHash": "3ecfa87738e59d567e6c44c1708b9a7d",
+      "sourceName": "contracts/facets/OwnershipFacet.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [
+        "../libraries/LibDiamond.sol",
+        "../interfaces/IERC173.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "OwnershipFacet"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/facets/LiquidationFacet.sol": {
+      "lastModificationDate": 1716510931605,
+      "contentHash": "e2ee9d5534c9bf5d0b283963ebb8059c",
+      "sourceName": "contracts/facets/LiquidationFacet.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [
+        "../libraries/LibAppStorage.sol",
+        "../libraries/LibLiquidation.sol",
+        "../libraries/LibDiamond.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "LiquidationFacet"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/facets/DiamondLoupeFacet.sol": {
+      "lastModificationDate": 1716510931605,
+      "contentHash": "ea3b2e64013d792244d705627a7d1aa9",
+      "sourceName": "contracts/facets/DiamondLoupeFacet.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [
+        "../libraries/LibDiamond.sol",
+        "../interfaces/IDiamondLoupe.sol",
+        "../interfaces/IERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "DiamondLoupeFacet"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/facets/DiamondCutFacet.sol": {
+      "lastModificationDate": 1716510931605,
+      "contentHash": "e4ef88a55e3f841c72e68872d39d12a5",
+      "sourceName": "contracts/facets/DiamondCutFacet.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/IDiamondCut.sol",
+        "../libraries/LibDiamond.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "DiamondCutFacet"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/facets/AdminFacet.sol": {
+      "lastModificationDate": 1716510931604,
+      "contentHash": "a7e648d82358400fa656c15947c9b6bf",
+      "sourceName": "contracts/facets/AdminFacet.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [
+        "../libraries/LibAppStorage.sol",
+        "../libraries/LibAdmin.sol",
+        "../libraries/LibDiamond.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "AdminFacet"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/facets/CollateralFacet.sol": {
+      "lastModificationDate": 1716510931604,
+      "contentHash": "5757191c896780b9618305e8be046d30",
+      "sourceName": "contracts/facets/CollateralFacet.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [
+        "../libraries/LibAppStorage.sol",
+        "../libraries/LibCollateral.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "CollateralFacet"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/facets/BidUpdateFacet.sol": {
+      "lastModificationDate": 1716510931604,
+      "contentHash": "db72d4070ce8e0059457dddc36745fc8",
+      "sourceName": "contracts/facets/BidUpdateFacet.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [
+        "../libraries/LibAppStorage.sol",
+        "../libraries/LibBidUpdate.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "BidUpdateFacet"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/facets/BidFacet.sol": {
+      "lastModificationDate": 1716510931604,
+      "contentHash": "74b8b42c900310fc811035b36c558fbe",
+      "sourceName": "contracts/facets/BidFacet.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [
+        "../libraries/LibAppStorage.sol",
+        "../libraries/LibBid.sol",
+        "../libraries/LibBidAccept.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "BidFacet"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/facets/FloorPriceFacet.sol": {
+      "lastModificationDate": 1716510931605,
+      "contentHash": "bb040f08fd9597623d955d14ee72c91e",
+      "sourceName": "contracts/facets/FloorPriceFacet.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [],
+      "artifacts": []
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/facets/PoolFacet.sol": {
+      "lastModificationDate": 1716510931605,
+      "contentHash": "c71dee7167fab80c76fd74adf1fc8478",
+      "sourceName": "contracts/facets/PoolFacet.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [],
+      "artifacts": []
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/interfaces/IPLAD.sol": {
+      "lastModificationDate": 1716510931606,
+      "contentHash": "9788fd4a297113eb7a4dee735648a69f",
+      "sourceName": "contracts/interfaces/IPLAD.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IPLAD"
+      ]
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/libraries/LibFloorPrice.sol": {
+      "lastModificationDate": 1716510931606,
+      "contentHash": "63e0eab65eab93bba6010b416a2f5a2c",
+      "sourceName": "contracts/libraries/LibFloorPrice.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [],
+      "artifacts": []
+    },
+    "/Users/wargly/Projects/ideafence/piggylet-contractsv2/contracts/libraries/LibPool.sol": {
+      "lastModificationDate": 1716510931607,
+      "contentHash": "5f0cf1e7d0dd6bbc1b50084064d6f6e6",
+      "sourceName": "contracts/libraries/LibPool.sol",
+      "solcConfig": {
+        "version": "0.8.15",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "libraries": {}
+        },
+        "zksolc": {
+          "version": "1.4.1",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "/Users/wargly/Library/Caches/hardhat-nodejs/compilers-v2/zksolc/zksolc-v1.4.1",
+            "missingLibrariesPath": "./.zksolc-libraries-cache/missingLibraryDependencies.json",
+            "areLibrariesMissing": false,
+            "experimental": {},
+            "libraries": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [],
+      "artifacts": []
+    }
+  }
+}
