@@ -49,18 +49,11 @@ task('accounts', 'Prints the list of accounts', async () => {
       allowUnlimitedContractSize: true,
       timeout: 100000
     },
-    mainnet: {
-      allowUnlimitedContractSize: true,
-      url: `https://mainnet.infura.io/v3/${MAINNET_API_KEY}`,
-      accounts: [process.env.GOERLI_PRIVATE_KEY]
-   },
     sepolia: {
       allowUnlimitedContractSize: true,
       url: `https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}`,
       accounts: [process.env.GOERLI_PRIVATE_KEY]
    },
-   
-
    },
    etherscan :{
      apiKey: process.env.ETHERSCAN_API_KEY

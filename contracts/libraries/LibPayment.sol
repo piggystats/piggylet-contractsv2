@@ -326,7 +326,7 @@ library LibPayment {
         require(LibCollateral._getSeller(_collateralId) == _sender, "P7");//you aren not the person for payback
     }
 
-    function _payback(
+     function _payback(
         uint256 _collateralId,
         uint256 _timestamp,
         address _sender
@@ -346,7 +346,20 @@ library LibPayment {
             IERC20(LibCollateral._getPaymentToken(_collateralId)).transferFrom(_sender, _getLenderAddress(_collateralId), (lenderReturnPayment-contractsProfit));
             IERC20(LibCollateral._getPaymentToken(_collateralId)).transferFrom(_sender, s.diamondAddress, contractsProfit);
             
-            IERC721(LibCollateral._getCollateralAddress(_collateralId)).transferFrom(s.diamondAddress, _sender, LibCollateral._getTokenID(_collateralId));
+            //IERC721(LibCollateral._getCollateralAddress(_collateralId)).transferFrom(s.diamondAddress, _sender, LibCollateral._getTokenID(_collateralId));
+            
+            if (LibCollateral._getTokenType(_collateralId) == 1) {
+                IERC721(LibCollateral._getCollateralAddress(_collateralId)).transferFrom(
+                    s.diamondAddress, 
+                    _sender, 
+                    LibCollateral._getTokenID(_collateralId)
+                );
+            }else if(LibCollateral._getTokenType(_collateralId) == 3){
+                IERC20(LibCollateral._getCollateralAddress(_collateralId)).transfer(
+                    _sender, 
+                    LibCollateral._getAmount(_collateralId)
+                );
+            }
             
             emit Payback(
                 _collateralId,
@@ -361,7 +374,19 @@ library LibPayment {
             IERC20(LibCollateral._getPaymentToken(_collateralId)).transferFrom(_sender, _getLenderAddress(_collateralId), (lenderReturnPayment-contractsProfit));
             IERC20(LibCollateral._getPaymentToken(_collateralId)).transferFrom(_sender, s.diamondAddress, contractsProfit);
             
-            IERC721(LibCollateral._getCollateralAddress(_collateralId)).transferFrom(s.diamondAddress, _sender, LibCollateral._getTokenID(_collateralId));
+            if (LibCollateral._getTokenType(_collateralId) == 1) {
+                IERC721(LibCollateral._getCollateralAddress(_collateralId)).transferFrom(
+                    s.diamondAddress, 
+                    _sender, 
+                    LibCollateral._getTokenID(_collateralId)
+                );
+            }else if(LibCollateral._getTokenType(_collateralId) == 3){
+                IERC20(LibCollateral._getCollateralAddress(_collateralId)).transfer(
+                    _sender, 
+                    LibCollateral._getAmount(_collateralId)
+                );
+            }
+
             
             emit Payback(
                 _collateralId,

@@ -61,6 +61,9 @@ struct Collateral {
     address paymentToken;
     address collateralAddress;
     address seller;
+    //new ones
+    uint8 collateralType;
+    uint256 amount;
 }
 struct Liquidation {
     uint256 collateralId;

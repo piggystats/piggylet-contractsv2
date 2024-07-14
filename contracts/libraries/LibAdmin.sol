@@ -250,9 +250,10 @@ library LibAdmin {
     }
 
     function _transferFee(address _tokenAddress,uint256 _amount,address _sender) internal {
-        AppStorage storage s = LibAppStorage.diamondStorage();
-        IERC20(_tokenAddress).transferFrom(s.diamondAddress, _sender,_amount);
+        //AppStorage storage s = LibAppStorage.diamondStorage();
+        IERC20(_tokenAddress).transfer(_sender,_amount);
     }
+
 
     function _setCollateralStatusToLoanFee(uint8 _status,uint256 _fee) internal {
         DiamondStorage storage ds = diamondStorage();

@@ -5,12 +5,6 @@ import {IERC721} from "../interfaces/IERC721.sol";
 import {IERC1155} from "../interfaces/IERC1155.sol";
 import {IERC20} from "../interfaces/IERC20.sol";
 import {LibAdmin} from "../libraries/LibAdmin.sol";
-//import {LibFloorPrice} from "../libraries/LibFloorPrice.sol";
-
-
-// interface IERC20 {
-//     function decimals() external view returns (uint8);
-// }
 
 library LibCollateral{
     struct DiamondStorage {
@@ -121,51 +115,21 @@ library LibCollateral{
         Collateral memory decodedData = s.idToCollateral[_collateralId];
         return decodedData.seller;
     }
-    // function _getTokenType(uint256 _colleteralId) internal view returns (uint8) {
-    //     AppStorage storage s = LibAppStorage.diamondStorage();
-    //     // retrieve the encoded data for the specified tokenId
-    //     bytes memory encodedData = s.idToColleretal[_colleteralId];
-    //     // decode the encoded data and retrieve the APR value
-    //     Colleteral memory decodedData = _decodeColleteral(encodedData);
-    //     return decodedData.colleteralType;
-    // }
-    // function _getAmount(uint256 _colleteralId) internal view returns (uint256) {
-    //     AppStorage storage s = LibAppStorage.diamondStorage();
-    //     // retrieve the encoded data for the specified tokenId
-    //     bytes memory encodedData = s.idToColleretal[_colleteralId];
-    //     // decode the encoded data and retrieve the APR value
-    //     Colleteral memory decodedData = _decodeColleteral(encodedData);
-    //     return decodedData.amount;
-    // }
 
-    // function _checkPrice(
-    //     address _collateralAddress,
-    //     uint256 _expectedPrice,
-    //     address _paymentToken
-    // )internal view returns(uint256){
-    //     require(_expectedPrice > 0, "C001");//Price must be at least 1 wei
-    //     //AppStorage storage s = LibAppStorage.diamondStorage(); 
-    //     //uint8  _colleteralStatus = LibAdmin._getCollateralStatus(LibCollateral._getCollateralAddress(_collateralId));
-    //     //uint256 ltv = LibAdmin._getLoanToValueCollateralAddress(_collateralAddress);
+    function _getTokenType(uint256 _collateralId) internal view returns (uint8) {
+        AppStorage storage s = LibAppStorage.diamondStorage();
+        // retrieve the encoded data for the specified tokenId
+        Collateral memory decodedData = s.idToCollateral[_collateralId];
+        return decodedData.collateralType;
+    }
+    function _getAmount(uint256 _collateralId) internal view returns (uint256) {
+        AppStorage storage s = LibAppStorage.diamondStorage();
+        // retrieve the encoded data for the specified tokenId
+        Collateral memory decodedData = s.idToCollateral[_collateralId];
+        return decodedData.amount;
+    }
 
-    //     require(ltv > 0,"C002");//LTV is 0
-    //     if(LibAdmin._getPaymentStatusForToken(_paymentToken) == 2){
-    //         uint256 floorPrice = LibFloorPrice._getFloorPrice(_collateralAddress);
-    //         require(_expectedPrice <= ((floorPrice*ltv)/100) && _expectedPrice >= ((floorPrice*10)/100),"C003"); //Price cant be max loan amount
-    //         return  _expectedPrice;
-    //     }
-    //     else if(LibAdmin._getPaymentStatusForToken(_paymentToken) == 1){
-    //         IERC20 token = IERC20(_paymentToken);
-    //         uint256 tokenDecimal =  token.decimals();
-    //         uint256 floorPrice = LibFloorPrice._getFloorPrice(_collateralAddress);//10 eth
-    //         uint256 floorPriceUSD = (floorPrice*LibAdmin._getETHPrice()/(10**(18-tokenDecimal))/uint256(1000000));//20kdolar
-    //         require(_expectedPrice <=((floorPriceUSD*ltv)/100) && _expectedPrice >= ((floorPriceUSD*10)/100),"C003"); //Price cant be max loan amount
-    //         return  _expectedPrice;
-    //     }
-    //     else{
-    //         revert("C004");//payment status not
-    //     }
-    // }
+
 
     function _collateralVerify(
         Collateral memory collateralParam,
@@ -173,17 +137,11 @@ library LibCollateral{
     ) internal view returns(Collateral memory){
         require(collateralParam.paybackDeadline <= 90 && collateralParam.paybackDeadline ==collateralParam.paybackDay , "C1");//Deadine should be less than 90 days s
         require(collateralParam.listDeadline <= 30 && collateralParam.listDeadline >= 7, "C2");//List deadline should be less than 30 days 
-        //require(collateralParam.listDeadline >= 7, "C007");//List deadline should be more than 7 days 
         require(collateralParam.apr >= 1  &&collateralParam.apr <= 999 , "C3");//APR Must be greater than zero"
         require(LibAdmin._getWhitelistCollateral(collateralParam.collateralAddress),"C4");//This collection is not supported
         require(LibAdmin._getApprovedToken(collateralParam.paymentToken),"C5");//This token is not supported
         
-        // uint256 expectedPrice =_checkPrice(
-        //     collateralParam.collateralAddress, 
-        //     collateralParam.expectedPrice,
-        //     collateralParam.paymentToken
-        // );
-        //collateralParam.expectedPrice = expectedPrice;
+
         collateralParam.listDeadline = _timestamp + (collateralParam.listDeadline * 86400 seconds);
         collateralParam.collateralId = _getCollateralID();
         collateralParam.liquidationType = 0;
@@ -196,7 +154,6 @@ library LibCollateral{
     ) internal view returns(Collateral memory){
         require(collateralParam.paybackDeadline <= 90 && collateralParam.paybackDeadline == collateralParam.paybackDay , "C6");//Deadine should be less than 90 days 
         require(collateralParam.listDeadline <= 30 && collateralParam.listDeadline >= 7, "C7");//List deadline should be less than 30 days 
-        //require(collateralParam.listDeadline >= 7, "C007");//List deadline should be more than 7 days 
         require(collateralParam.status == 2, "C8");//This item cant search bids
         require(LibAdmin._getWhitelistCollateral(collateralParam.collateralAddress),"C9");//This collection is not supported
         
@@ -221,11 +178,25 @@ library LibCollateral{
 
         s.idToCollateral[verifiedCollateral.collateralId] = verifiedCollateral;
 
-        IERC721(verifiedCollateral.collateralAddress).transferFrom(
+        // IERC721(verifiedCollateral.collateralAddress).transferFrom(
+        //     _sender, 
+        //     s.diamondAddress, 
+        //     verifiedCollateral.tokenId
+        // );
+
+        if (collateralParam.collateralType == 1) {
+            IERC721(verifiedCollateral.collateralAddress).transferFrom(
             _sender, 
             s.diamondAddress, 
             verifiedCollateral.tokenId
         );
+        } else if(collateralParam.collateralType == 3){
+            IERC20(verifiedCollateral.collateralAddress).transferFrom(
+                _sender, 
+                s.diamondAddress, 
+                collateralParam.amount
+            );
+        }
 
         emit CollateralSendedEvent(
             verifiedCollateral
@@ -265,17 +236,10 @@ library LibCollateral{
         require(_getItemStatus(collateralParam.collateralId)== 1 || _getItemStatus(collateralParam.collateralId) == 2,"C12");//not supported
         require(collateralParam.paybackDeadline <= 90 && collateralParam.paybackDeadline == collateralParam.paybackDay , "C13");//Deadine should be less than 90 days 
         require(collateralParam.listDeadline <= 30 && collateralParam.listDeadline >= 7, "C14");//List deadline should be less than 30 days 
-        //require(collateralParam.listDeadline >= 7, "C007");//List deadline should be more than 7 days 
         require(collateralParam.apr >= 1  &&collateralParam.apr <= 999 , "C15");//APR Must be greater than zero"
         require(LibAdmin._getWhitelistCollateral(collateralParam.collateralAddress),"C16");//This collection is not supported
         require(LibAdmin._getApprovedToken(collateralParam.paymentToken),"C17");//This token is not supported
-        
-        // uint256 expectedPrice =_checkPrice(
-        //     collateralParam.collateralAddress, 
-        //     collateralParam.expectedPrice,
-        //     collateralParam.paymentToken
-        // );
-        // collateralParam.expectedPrice = expectedPrice;
+
         collateralParam.liquidationType = 0;
         collateralParam.listDeadline = _timestamp + (collateralParam.listDeadline * 86400 seconds);
     }
@@ -335,8 +299,19 @@ library LibCollateral{
         //bytes memory _encodedData = _encodeColleteral(decodedData);
         s.idToCollateral[_collateralId] = _collateral;
 
-        IERC721(_getCollateralAddress(_collateralId)).transferFrom(s.diamondAddress, _getSeller(_collateralId), _getTokenID(_collateralId));
+        // IERC721(_getCollateralAddress(_collateralId)).transferFrom(s.diamondAddress, _getSeller(_collateralId), _getTokenID(_collateralId));
 
+        if (_collateral.collateralType == 1) {
+            IERC721(_getCollateralAddress(_collateralId)).transferFrom(
+                s.diamondAddress, _getSeller(_collateralId), 
+                _getTokenID(_collateralId)
+                );
+        } else if(_collateral.collateralType == 3){
+            IERC20(_getCollateralAddress(_collateralId)).transfer(
+                _sender, 
+                _collateral.amount
+            );
+        }
         emit ChangedItemStatusTo(_collateralId, 11);
 
     }

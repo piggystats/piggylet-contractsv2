@@ -21,7 +21,7 @@ contract CollateralFacet {
     function bundleLoan(
         Collateral[] memory collateral
     ) external {
-        require(collateral.length <=10,"10 item");
+        require(collateral.length <=10,"10");
         for (uint256 i = 0; i < collateral.length; i++){
             LibCollateral._sendForLoan(collateral[i],block.timestamp,msg.sender);
         }
@@ -46,8 +46,13 @@ contract CollateralFacet {
         LibCollateral._cancelLoanRequest(_collateralId,msg.sender);
     }
 
-    // function decodeCollateral(uint256 _collateralId) external pure returns (Collateral memory collateral) {
-    //     (collateral) = LibAdmin._getCollateralInfo(_collateralId);
-    // }
+    function viewtype(uint256 _collateralId) external view returns(uint8){
+        return LibCollateral._getTokenType(_collateralId);
+        
+    }
+
+    function viewAmount(uint256 _collateralId) external view returns(uint256){
+        return LibCollateral._getAmount(_collateralId);
+    }
 
 }
