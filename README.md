@@ -1,31 +1,31 @@
 # ALFA PROD ORTAMI BU OLACAK
 <pre>
 npx hardhat compile
-npx hardhat run scripts/deploy.js --network sepolia 
-npx hardhat run scripts/updateadmin.js --network sepolia 
+npx hardhat run scripts/deploy.js --network holesky 
+npx hardhat run scripts/updateadmin.js --network holesky 
 
 Compilation finished successfully
 
 
-DiamondCutFacet deployed: 0xcCC0a53B8625D45D9720C2F158cB2492A52572B3
-Diamond deployed: 0x1dCE33Ba8a5188234ef6f797Fc8FF118B62DFD16
-DiamondInit deployed: 0x5Bf8EBEED15AD440076aed575B9Dd04eaf34c4Cf
+Contract owner address: 0x2Ee1CB29722ba8fB8F58F802e63c62c105F0b154
+DiamondCutFacet deployed: 0xef98d81D5Cae384C5848BcE92Ef94076Ea2219C2
+Diamond deployed: 0x4A9eD026fFCD87c7b0D75B6b71b035dd8dfB6AB4
+DiamondInit deployed: 0x33A557efc25Faa801E25A2Dc7b8785DA81D9D804
 
 Deploying facets
-DiamondLoupeFacet deployed: 0x6e50e9923a2c1ACCCA2124C9C68c5B669F62E6CB
-OwnershipFacet deployed: 0xd3eF233498bF9e6752a2cBc9654371FD43927B2a
-CollateralFacet deployed: 0x9A12abf9ac5683aC0992a5b76E6D0aa7A782637E
-PaymentFacet deployed: 0x4eDEd7f2867C11979F57c544EC292d0B230FBc6e
-AdminFacet deployed: 0x9726417b77878825239709950247aD35f821e7e9
-BidFacet deployed: 0x269c042bFEa685Bac5591F056E48AC7Bff088F1A
-BidUpdateFacet deployed: 0xD3478906d787271D2B99F2c237B39a713d628212
-FloorPriceFacet deployed: 0x36caA9b3B5e9c60F65be8068547b27ED8FF40600
-LiquidationFacet deployed: 0x436E94CE5beb9F64390F45FAF7da82793De6190f
-PladFacet deployed: 0x1bb9a4f40687F690583a7F1A9F999Ba2D48f6f99
+DiamondLoupeFacet deployed: 0xbc8b50370594B91E0bb1D544b2696dEAFBEBe9C0
+OwnershipFacet deployed: 0x828F6aEDd151882b99cEa041ff5Fc6D0068d7F5b
+CollateralFacet deployed: 0xF9872214D5B770e42817Ec203c80525777ee0B8b
+PaymentFacet deployed: 0xA5A7222332E8373c8bab8E94AA1D1d9036D1E9D7
+AdminFacet deployed: 0xD55C1748161F90af6Bbc00380F8838d93799A0ef
+BidFacet deployed: 0xfc436202b8eeC9Eec0D4F11E790772Ad11a9B578
+BidUpdateFacet deployed: 0xe02F8984C9302f64c31004C841A9e481Ed0cD25C
+LiquidationFacet deployed: 0x24178BB3ce1355aa2379a219a7684BFdAD4F543F
+PladFacet deployed: 0xfDb56762a2F5bC712105a10fA8efaadB9ccd7Bab
 
 Diamond Cut: [
   {
-    facetAddress: '0x6e50e9923a2c1ACCCA2124C9C68c5B669F62E6CB',
+    facetAddress: '0xbc8b50370594B91E0bb1D544b2696dEAFBEBe9C0',
     action: 0,
     functionSelectors: [
       '0xcdffacc6',
@@ -39,7 +39,7 @@ Diamond Cut: [
     ]
   },
   {
-    facetAddress: '0xd3eF233498bF9e6752a2cBc9654371FD43927B2a',
+    facetAddress: '0x828F6aEDd151882b99cEa041ff5Fc6D0068d7F5b',
     action: 0,
     functionSelectors: [
       '0x8da5cb5b',
@@ -50,27 +50,28 @@ Diamond Cut: [
     ]
   },
   {
-    facetAddress: '0x9A12abf9ac5683aC0992a5b76E6D0aa7A782637E',
+    facetAddress: '0xF9872214D5B770e42817Ec203c80525777ee0B8b',
     action: 0,
     functionSelectors: [
-      '0xf5b66044',
+      '0x47eedb1f',
       '0x5a680367',
-      '0x00fef8c4',
-      '0x6bde62a5',
-      '0x9cc7406a',
+      '0xb4fad53c',
+      '0xb661b50d',
+      '0x34f56792',
+      '0x1b6487c3',
+      '0x58b34a59',
       contract: [Contract],
       remove: [Function: remove],
       get: [Function: get]
     ]
   },
   {
-    facetAddress: '0x4eDEd7f2867C11979F57c544EC292d0B230FBc6e',
+    facetAddress: '0xA5A7222332E8373c8bab8E94AA1D1d9036D1E9D7',
     action: 0,
     functionSelectors: [
       '0x2a731ec1',
       '0x4751de1c',
       '0x7ccc5d35',
-      '0x2b079b2e',
       '0xb7f4746e',
       contract: [Contract],
       remove: [Function: remove],
@@ -78,7 +79,7 @@ Diamond Cut: [
     ]
   },
   {
-    facetAddress: '0x9726417b77878825239709950247aD35f821e7e9',
+    facetAddress: '0xD55C1748161F90af6Bbc00380F8838d93799A0ef',
     action: 0,
     functionSelectors: [
       '0x574be132',
@@ -89,7 +90,6 @@ Diamond Cut: [
       '0x6013c44c',
       '0x9bddd05f',
       '0x9fcb322c',
-      '0xc3e214fc',
       '0xb4d7a3f5',
       '0x04bc8d47',
       '0x5e4ea00f',
@@ -102,6 +102,7 @@ Diamond Cut: [
       '0x751a7bfe',
       '0xc8b2bdea',
       '0xac086e37',
+      '0x9ff46728',
       '0xfeabb887',
       '0x2d1a4850',
       '0x9beb487d',
@@ -113,6 +114,7 @@ Diamond Cut: [
       '0x0d2bad5e',
       '0x990d070a',
       '0xcbf9c05c',
+      '0x0ed02904',
       '0xf17637c5',
       '0x7c374f99',
       '0xe49a12dc',
@@ -123,11 +125,10 @@ Diamond Cut: [
     ]
   },
   {
-    facetAddress: '0x269c042bFEa685Bac5591F056E48AC7Bff088F1A',
+    facetAddress: '0xfc436202b8eeC9Eec0D4F11E790772Ad11a9B578',
     action: 0,
     functionSelectors: [
-      '0x79ef44a1',
-      '0x7fc626e2',
+      '0x9e410cce',
       '0xd18fb274',
       '0xe427b2ee',
       contract: [Contract],
@@ -136,31 +137,18 @@ Diamond Cut: [
     ]
   },
   {
-    facetAddress: '0xD3478906d787271D2B99F2c237B39a713d628212',
+    facetAddress: '0xe02F8984C9302f64c31004C841A9e481Ed0cD25C',
     action: 0,
     functionSelectors: [
-      '0xacbf99a2',
-      '0xe72b9088',
-      '0xd23db0fb',
-      '0x270715fc',
+      '0x4b393605',
+      '0x37c75f1b',
       contract: [Contract],
       remove: [Function: remove],
       get: [Function: get]
     ]
   },
   {
-    facetAddress: '0x36caA9b3B5e9c60F65be8068547b27ED8FF40600',
-    action: 0,
-    functionSelectors: [
-      '0x78aa1dba',
-      '0xae255af1',
-      contract: [Contract],
-      remove: [Function: remove],
-      get: [Function: get]
-    ]
-  },
-  {
-    facetAddress: '0x436E94CE5beb9F64390F45FAF7da82793De6190f',
+    facetAddress: '0x24178BB3ce1355aa2379a219a7684BFdAD4F543F',
     action: 0,
     functionSelectors: [
       '0x7e1a0a74',
@@ -172,7 +160,7 @@ Diamond Cut: [
     ]
   },
   {
-    facetAddress: '0x1bb9a4f40687F690583a7F1A9F999Ba2D48f6f99',
+    facetAddress: '0xfDb56762a2F5bC712105a10fA8efaadB9ccd7Bab',
     action: 0,
     functionSelectors: [
       '0x61f4dd40',
@@ -191,8 +179,7 @@ Diamond Cut: [
     ]
   }
 ]
-Diamond cut tx:  0x1f31aef362b8b203399416092bed66e1fa0556171342cc4b1e1b04591f75ba0d
+Diamond cut tx:  0x349234bd133d81753053105136a62f6daae50ce0a2620f61dac1373b9aa0c1f6
 Completed diamond cut
-
 
 </pre>

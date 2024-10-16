@@ -53,7 +53,12 @@ task('accounts', 'Prints the list of accounts', async () => {
       allowUnlimitedContractSize: true,
       url: `https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}`,
       accounts: [process.env.GOERLI_PRIVATE_KEY]
-   },
+    },
+    holesky: {
+    allowUnlimitedContractSize: true,
+    url: `https://eth-holesky.g.alchemy.com/v2/${ALCHEMY_API_KEY}`,
+    accounts: [process.env.GOERLI_PRIVATE_KEY]
+    }
    },
    etherscan :{
      apiKey: process.env.ETHERSCAN_API_KEY
